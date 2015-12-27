@@ -1,0 +1,107 @@
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  background: @yellow;
+  margin-bottom: 360px;
+}
+
+footer {
+  .saw_top {
+    position: absolute;
+    top: -12px;
+    height: 12px;
+    width: 100%;
+    background: url('/static/img/hex_bord_top.png') repeat-x;
+  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  padding-top: 50px;
+  background: @brand-primary url('/static/img/hex_bord.png');
+
+  .panel {
+    border: 5px solid @brand-primary;
+    .panel-body {
+      display: block;
+      padding: 25px;
+      background: @brand-primary;
+      border: 1px solid @bord;
+      text-align: center;
+      text-transform: uppercase;
+      color: @bord;
+      &:hover {
+        color: #fff;
+        border-color: #fff;
+      }
+    }
+
+    &.social {
+      .panel-body {
+        padding: 15px;
+        .social_list {
+          display: inline-block;
+          margin: 0;
+          li {
+            text-align: center;
+            a {
+              font-size: 20px;
+              padding: 5px;
+              height: 40px;
+              width: 40px;
+              border-radius: 20px;
+              border: 1px solid @bord;
+              display: inline-block;
+              vertical-align: baseline;
+              color: @bord;
+              &:hover {
+                color: #fff;
+                border-color: #fff;
+              }
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    &.vacancy {
+      margin-bottom: 50px;
+    }
+    &.production {
+
+    }
+    &.friends {
+
+    }
+  }
+}
+
+.content {
+  padding-top: 120px;
+}
+
+.phone_list {
+  li {
+    font-size: 20px;
+    color: @brand-primary;
+  }
+}
+
+hr {
+  border-top: 1px solid @brand-primary;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: lighten(@pink, 20%);
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: lighten(@pink, 20%);
+}

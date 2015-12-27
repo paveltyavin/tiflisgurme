@@ -1,0 +1,36 @@
+{% load static from staticfiles %}
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-left list-inline">
+            <li>
+                <div class="container_hex">
+                    <span class="hex">⬡</span>
+                </div>
+                <a href="/menu/">Меню</a>
+            </li>
+            <li>
+                <div class="container_hex">
+                    <span class="hex">⬡</span>
+                </div>
+                <a href="/shipping/">Доставка</a>
+            </li>
+        </ul>
+        <div class="logo">
+            <img src="{% static 'img/logo_2.png' %}" alt="">
+        </div>
+        <ul class="navbar-right list-inline">
+            <li>
+                <a href="/news/">Новости</a>
+                <div class="container_hex">
+                    <span class="hex">⬡</span>
+                </div>
+            </li>
+            <li>
+                <a href="/contact/">Контакты</a>
+                <div class="container_hex">
+                    <span class="hex">⬡</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

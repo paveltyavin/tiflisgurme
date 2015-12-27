@@ -1,0 +1,69 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Kurale' rel='stylesheet' type='text/css'>
+    <script src="{% static 'vendor.js' %}"></script>
+    <script src="{% static 'app.js' %}"></script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block pre_content %}{% endblock %}
+{% include 'navbar.html' %}
+<div class="content">
+{% block content %}{% endblock %}
+</div>
+<footer>
+    <div class="saw_top"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel vacancy">
+                    <a class="panel-body" href="#">
+                        Вакансии
+                    </a>
+                </div>
+                <div class="panel social">
+                    <div class="panel-body">
+                        <ul class="social_list list-unstyled list-inline">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-vk"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel production">
+                    <div class="panel-body">
+                        Наша продукция
+                        <img src="{% static 'img/logo_2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel friends">
+                    <div class="panel-body">
+                        Наши друзья
+                        <img src="{% static 'img/logo_2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

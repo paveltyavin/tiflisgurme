@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block body_class %}body_shipping{% endblock %}
+{% block content %}
+    <div class="row image_list">
+        <div class="col-xs-4">
+            <img src="{% static 'img/logo_2.png' %}" alt="">
+        </div>
+        <div class="col-xs-4">
+            <img src="{% static 'img/logo_2.png' %}" alt="">
+        </div>
+        <div class="col-xs-4">
+            <img src="{% static 'img/logo_2.png' %}" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <script type="text/javascript" charset="utf-8"
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ZyFtR8qkMMoz2qmkVlai3FXByKjpZYB_&width=643&height=507&lang=ru_RU&sourceType=constructor"></script>
+            </div>
+            <div class="col-md-5">
+                Для того, чтобы заказать доставку, <br>
+                позвоните нам по номеру:
+                <ul class="phone_list list-unstyled">
+                    <li>+7 916 081 77 77</li>
+                    <li>+7 916 111 42 11</li>
+                </ul>
+                <hr>
+                Доставка осуществляется в пределах обозначенной зоны.
+            </div>
+        </div>
+    </div>
+{% endblock %}

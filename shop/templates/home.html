@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block body_class %}body_home{% endblock %}
+{% block pre_content %}
+    <div class="ribbon">
+        <div class="angle"></div>
+        <ul class="lang_list list-unstyled list-inline">
+            <li class="active">
+                <a href="#">RUS</a>
+            </li>
+            <li>
+                <a href="#">EN</a>
+            </li>
+        </ul>
+        <ul class="social_list list-unstyled list-inline">
+            <li>
+                <a href="#">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-vk"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container_welcome">
+        <div class="welcome_image"></div>
+        <div class="container_logo">
+            <div>
+                <img src="{% static 'img/logo.png' %}" class="logo">
+            </div>
+            Кафе-хинкальная для всей семьи
+        </div>
+        <div class="today">
+            <span class="glyphicon glyphicon-time"></span>
+            {{ now|date:"H:i" }} ― Сегодня {{ weekday }}. {{ open_text }}
+        </div>
+        <a href="#" class="arrow_bottom"></a>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container welcome_text">
+        Это кафе было открыто для себя и для друзей, и поэтому о вкусовых качествах и о качестве самой еды разговаривать
+        бессмысленно. В нем собраны лучшие повара древне-грузинской кухни и вся команда, можно сказать, это одна большая
+        семья, а это уже говорит о многом!
+
+        <p></p>
+        Обычно после громких слов появляются высокие ожидания, но наши слова недостаточно громки по сравнению с
+        наслаждением, которое получают наши гости!
+    </div>
+    <div class="container_khink">
+        <img src="{% static 'img/khink.png' %}" alt="">
+    </div>
+    <div id="homeCarousel" class="carousel slide multi-item-carousel">
+        <div class="carousel-inner">
+            {% for home_image in home_image_list %}
+                <div class="item {% if forloop.first %}active{% endif %}">
+                    <div class="carousel-col">
+                        <a href="#{{ forloop.counter }}"><img src="{{ home_image.image.url }}" class="img-responsive"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="left carousel-control" href="#homeCarousel" data-slide="prev">
+            <img src="{% static 'img/angle_left.png' %}" alt="" class="angle_left">
+        </a>
+        <a class="right carousel-control" href="#homeCarousel" data-slide="next">
+            <img src="{% static 'img/angle_right.png' %}" alt="" class="angle_right">
+        </a>
+    </div>
+{% endblock %}

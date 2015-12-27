@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block body_class %}body_contact{% endblock %}
+{% load bootstrap3 %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                КАФЕ-ХИНКАЛЬНАЯ <br>
+                «ТИФЛИС ГУРМЭ»
+                <p></p>
+                Старопетровский пр-д. 1 м. Войковская
+
+                <p></p>
+                Вы можете забронировать столик, заказать банкет и позвонить <br>
+                по интересующему вас вопросу по телефонам:
+                <ul class="phone_list list-unstyled">
+                    <li>+7 916 081 77 77</li>
+                    <li>+7 916 111 42 11</li>
+                </ul>
+                <hr>
+                Доставка осуществляется в пределах обозначенной зоны.
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center container_time">
+                <div class="div">
+                    <span class="glyphicon glyphicon-time"></span>
+                </div>
+                <div class="time">12:00 - 22:00</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h4>Напишите нам, и мы вам обязательно ответим!</h4>
+
+                <div>
+                    <img src="{% static 'img/khink.png' %}" class="khink">
+                </div>
+
+                {% if form %}
+                    <form action="" method="post">
+                    {% csrf_token %}
+                        {% bootstrap_field form.name %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% bootstrap_field form.phone %}
+                            </div>
+                            <div class="col-md-6">
+                                {% bootstrap_field form.email %}
+                            </div>
+                        </div>
+
+
+                        {% bootstrap_field form.text %}
+
+                        <div class="text-center">
+                            <button type="submit">Отправить</button>
+                        </div>
+                </form>
+
+                {% else %}
+                    <div class="success_message">Отправлено!</div>
+                    <form action="/contact/" method="get">
+                        <div class="text-center">
+                            <button type="submit">Отправить новое письмо?</button>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
