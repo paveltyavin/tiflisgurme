@@ -69,6 +69,15 @@ class ContactView(FormView):
     form_class = ContactForm
 
     def form_valid(self, form):
+        data = form.cleaned_data
+        subject = 'Сообщение от {name}'.format(**data)
+        message = """
+        Имя: {name}
+        Телефон: {phone}
+        Email: {email}
+        Текст сообщения: {text}
+        """.format(**data)
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_FROM_EMAIL])
         return redirect('contact-success')
 
 
@@ -78,10 +87,6 @@ class ContactSuccessView(TemplateView):
 
 def test_error(request):
     raise Exception
-
-
-def test_yandex(request):
-    return HttpResponse('f97e71c763a2')
 
 
 def test_mail(request):

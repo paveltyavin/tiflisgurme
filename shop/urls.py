@@ -2,7 +2,6 @@ from django.conf.urls import url, include
 from shop import views
 
 urlpatterns = [
-    url(r'^f3d56f76f200\.html', views.test_yandex),
     url(r'^test/error/$', views.test_error),
     url(r'^test/mail/$', views.test_mail),
     url(r'^$', views.StubView.as_view()),
