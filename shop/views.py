@@ -48,6 +48,14 @@ class ShippingView(TemplateView):
     template_name = 'shipping.html'
 
 
+class VacancyView(TemplateView):
+    template_name = 'shipping.html'
+
+
+class NewsView(TemplateView):
+    template_name = 'shipping.html'
+
+
 class ContactForm(forms.Form):
     name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Имя'}))
     phone = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Телефон'}))
@@ -58,7 +66,7 @@ class ContactForm(forms.Form):
         widget=forms.Textarea(
             attrs={
                 'placeholder': 'Текст сообщения',
-                'rows': '2',
+                'rows': '6',
             }
         ),
     )

@@ -1,31 +1,30 @@
 {% load static from staticfiles %}
+{% load shop_tags %}
 <nav class="navbar">
     <div class="container">
         <ul class="navbar-left list-inline">
-            <li>
+            <li class="{% active request '/menu/' %}">
                 <div class="container_hex">
                     <span class="hex">⬡</span>
                 </div>
                 <a href="/menu/">Меню</a>
             </li>
-            <li>
+            <li class="{% active request '/shipping/' %}">
                 <div class="container_hex">
                     <span class="hex">⬡</span>
                 </div>
                 <a href="/shipping/">Доставка</a>
             </li>
         </ul>
-        <div class="logo">
-            <img src="{% static 'img/logo_2.png' %}" alt="">
-        </div>
+        <a class="logo" href="/"></a>
         <ul class="navbar-right list-inline">
-            <li>
+            <li class="{% active request '/news/' %}">
                 <a href="/news/">Новости</a>
                 <div class="container_hex">
                     <span class="hex">⬡</span>
                 </div>
             </li>
-            <li>
+            <li class="{% active request '/contact/' %}">
                 <a href="/contact/">Контакты</a>
                 <div class="container_hex">
                     <span class="hex">⬡</span>

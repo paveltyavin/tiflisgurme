@@ -20,20 +20,29 @@
                     <li>+7 916 081 77 77</li>
                     <li>+7 916 111 42 11</li>
                 </ul>
-                <hr>
-                Доставка осуществляется в пределах обозначенной зоны.
             </div>
         </div>
 
 
-
-
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center container_time">
+            <div class="col-md-12 col-md-offset-0 text-center container_time">
+                <div class="line_hex">
+                    <div class="container_line"><div class="line"></div></div>
+                    <div class="hex">⬡</div>
+                    <div class="container_line"><div class="line"></div></div>
+                </div>
                 <div class="div">
                     <span class="glyphicon glyphicon-time"></span>
                 </div>
-                <div class="time">12:00 - 22:00</div>
+                <div class="time">12:00 ― 22:00</div>
+                <div class="today">
+                    {{ now|date:"H:i" }} ― Сегодня {{ weekday }}. {{ open_text }}
+                </div>
+                <div class="line_hex">
+                    <div class="container_line"><div class="line"></div></div>
+                    <div class="hex">⬡</div>
+                    <div class="container_line"><div class="line"></div></div>
+                </div>
             </div>
         </div>
 

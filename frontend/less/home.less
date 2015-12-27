@@ -18,12 +18,12 @@
     }
     &.affix-top {
       .angle {
-        background: url('/static/img/ribbon.png');
+        background: url('/static/img/ribbon_white.png');
       }
       position: fixed;
       display: block;
       right: 0;
-      top: 30px;
+      top: 40px;
       z-index: 1;
       color: #fff;
       height: 60px;
@@ -62,13 +62,13 @@
     }
     &.affix {
       .angle {
-        background: url('/static/img/ribbon_red.png');
+        background: url('/static/img/ribbon_pink.png');
       }
       z-index: 20;
       position: fixed;
       display: block;
       right: 0;
-      top: 30px;
+      top: 40px;
       color: #fff;
       height: 60px;
       width: 130px;
@@ -102,13 +102,14 @@
         margin-bottom: 20px;
       }
       position: absolute;
-      width: 300px;
-      height: 150px;
+      width: 400px;
+      height: 300px;
       top: 50%;
       left: 50%;
-      margin-left: -150px;
-      margin-top: -75px;
+      margin-left: -200px;
+      margin-top: -150px;
       text-align: center;
+      font-size: 22px;
       color: #fff;
     }
     .today {
@@ -118,6 +119,7 @@
       left: 50%;
       width: 400px;
       margin-left: -200px;
+      font-size: 18px;
       color: #fff;
     }
     .arrow_bottom {
@@ -127,7 +129,11 @@
       left: 50%;
       margin-left: -30px;
       bottom: 30px;
-      background: url('/static/img/angle_bottom.png');
+      text-align: center;
+      i {
+        color: #fff;
+        font-size: 30px;
+      }
     }
   }
 

@@ -1,14 +1,14 @@
 module.exports = ->
   $('#homeCarousel').carousel interval: false
   $('.multi-item-carousel .item').each ->
-    next = $(this).next()
+    next = $(@).next()
     if !next.length
-      next = $(this).siblings(':first')
-    next.children(':first-child').clone().appendTo $(this)
+      next = $(@).siblings(':first')
+    next.children(':first-child').clone().appendTo $(@)
     if next.next().length > 0
-      next.next().children(':first-child').clone().appendTo $(this)
+      next.next().children(':first-child').clone().appendTo $(@)
     else
-      $(this).siblings(':first').children(':first-child').clone().appendTo $(this)
+      $(@).siblings(':first').children(':first-child').clone().appendTo $(@)
 
   height = $(window).height()
   $('.container_welcome').css 'height', height

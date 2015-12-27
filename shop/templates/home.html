@@ -34,7 +34,7 @@
         <div class="welcome_image"></div>
         <div class="container_logo">
             <div>
-                <img src="{% static 'img/logo.png' %}" class="logo">
+                <img src="{% static 'img/logo/315_white.png' %}" class="logo">
             </div>
             Кафе-хинкальная для всей семьи
         </div>
@@ -42,13 +42,15 @@
             <span class="glyphicon glyphicon-time"></span>
             {{ now|date:"H:i" }} ― Сегодня {{ weekday }}. {{ open_text }}
         </div>
-        <a href="#" class="arrow_bottom"></a>
+        <a href="#" class="arrow_bottom">
+            <i class="fa fa-angle-double-down"></i>
+        </a>
     </div>
 {% endblock %}
 {% block content %}
     <div class="container welcome_text">
         Это кафе было открыто для себя и для друзей, и поэтому о вкусовых качествах и о качестве самой еды разговаривать
-        бессмысленно. В нем собраны лучшие повара древне-грузинской кухни и вся команда, можно сказать, это одна большая
+        бессмысленно. В нем собраны лучшие повара грузинской кухни и вся команда, можно сказать, это одна большая
         семья, а это уже говорит о многом!
 
         <p></p>
@@ -63,7 +65,9 @@
             {% for home_image in home_image_list %}
                 <div class="item {% if forloop.first %}active{% endif %}">
                     <div class="carousel-col">
-                        <a href="#{{ forloop.counter }}"><img src="{{ home_image.image.url }}" class="img-responsive"></a>
+                        <a href="#{{ forloop.counter }}">
+                            <img src="{{ home_image.image.url }}" class="img-responsive">
+                        </a>
                     </div>
                 </div>
             {% endfor %}

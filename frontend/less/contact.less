@@ -1,5 +1,29 @@
 .body_contact {
+  .line_hex {
+    margin-top:20px;
+    margin-bottom:10px;
+    display: table;
+    width: 100%;
+    .container_line {
+      display: table-cell;
+      .line {
+        height: 3px;
+        border-top: 1px solid @pink;
+      }
+    }
+    .hex {
+      width: 30px;
+      color: @pink;
+      font-size: 10px;
+      display: table-cell;
+    }
+  }
   .container_time {
+    .time {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
     .glyphicon {
       font-size: 24px;
       color: @pink;
@@ -12,7 +36,6 @@
     margin: 30px;
   }
   form {
-
     textarea, input {
       border: 1px solid @pink;
       padding: 5px;

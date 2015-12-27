@@ -81,7 +81,6 @@
   left: 0;
   bottom: 0;
   width: @carousel-control-width;
-  .opacity(@carousel-control-opacity);
   text-align: center;
   // We can't have this transition here because WebKit cancels the carousel
   // animation if you trip this while in the middle of another animation.
@@ -101,7 +100,7 @@
   }
   .angle_left,
   .angle_right, {
-    margin-top: -54px;
+    margin-top: -14px;
     position: absolute;
     top: 50%;
     z-index: 5;

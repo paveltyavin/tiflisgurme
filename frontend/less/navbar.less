@@ -1,9 +1,9 @@
 .navbar {
-  .container {
-    padding-top: 20px;
+  ul {
+    margin-bottom: 0;
   }
   &.affix-top {
-    margin-bottom: -120px;
+    margin-bottom: -150px;
   }
   &.affix {
     position: fixed;
@@ -14,11 +14,14 @@
   }
   text-align:center;
   text-transform: uppercase;
-  height: 120px;
+  height: 150px;
   background: #fff;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid @pink;
   .navbar-right, .navbar-left {
     display: inline-block;
+    width: 360px;
+    vertical-align: top;
+    margin-top: 60px;
     .container_hex {
       display: inline-block;
       line-height: 30px;
@@ -34,10 +37,22 @@
       list-style: none;
       a {
         color: #000;
+        &:hover {
+          color: @bord;
+          border-bottom: 2px solid @bord;
+        }
+      }
+      &.active {
+        a {
+          color: @bord;
+          border-bottom: 2px solid @bord;
+        }
+        .hex {
+          color: @bord;
+        }
       }
     }
   }
-
   .navbar-left li {
     margin-right: 30px;
     .container_hex {
@@ -50,10 +65,16 @@
       margin-left: 15px;
     }
   }
+
   .logo {
+    vertical-align: top;
     display: inline-block;
-    img {
-      height: 80px;
+    margin-top: 20px;
+    width: 160px;
+    height: 96px;
+    background: url('/static/img/logo/160_pink.png');
+    &:hover {
+      background: url('/static/img/logo/160_bord.png');
     }
   }
 }

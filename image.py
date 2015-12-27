@@ -38,10 +38,10 @@ def hex():
 
 
 def ribbon():
-    file_name = os.path.join(os.path.dirname(__file__), 'frontend/dist/img/ribbon.png')
+    file_name = os.path.join(os.path.dirname(__file__), 'frontend/dist/img/ribbon_white.png')
     im = Image.new("RGBA", (500, 60), )
     draw = Draw(im)
-    file_name_2 = os.path.join(os.path.dirname(__file__), 'frontend/dist/img/ribbon_red.png')
+    file_name_2 = os.path.join(os.path.dirname(__file__), 'frontend/dist/img/ribbon_pink.png')
     im_2 = Image.new("RGBA", (500, 60), )
     draw_2 = Draw(im_2)
 
@@ -92,4 +92,4 @@ def angle():
 if __name__ == '__main__':
     hex()
     ribbon()
-    angle()
+    # angle()
