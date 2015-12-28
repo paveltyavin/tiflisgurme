@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 {% block body_class %}body_home{% endblock %}
+{% load thumbnail %}
 {% block pre_content %}
     <div class="ribbon">
         <div class="angle"></div>
@@ -60,23 +61,15 @@
     <div class="container_khink">
         <img src="{% static 'img/khink.png' %}" alt="">
     </div>
-    <div id="homeCarousel" class="carousel slide multi-item-carousel">
-        <div class="carousel-inner">
+    <div class="container_slider">
+        <div class="slider">
             {% for home_image in home_image_list %}
-                <div class="item {% if forloop.first %}active{% endif %}">
-                    <div class="carousel-col">
-                        <a href="#{{ forloop.counter }}">
-                            <img src="{{ home_image.image.url }}" class="img-responsive">
-                        </a>
-                    </div>
+                <div class="item">
+                    {% thumbnail home_image.image "x560" as im %}
+                        <img src="{{ im.url }}">
+                    {% endthumbnail %}
                 </div>
             {% endfor %}
         </div>
-        <a class="left carousel-control" href="#homeCarousel" data-slide="prev">
-            <img src="{% static 'img/angle_left.png' %}" alt="" class="angle_left">
-        </a>
-        <a class="right carousel-control" href="#homeCarousel" data-slide="next">
-            <img src="{% static 'img/angle_right.png' %}" alt="" class="angle_right">
-        </a>
     </div>
 {% endblock %}
