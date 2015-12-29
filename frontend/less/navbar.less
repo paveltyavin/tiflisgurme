@@ -1,9 +1,10 @@
 .navbar {
+  letter-spacing: 1.5px;
   ul {
     margin-bottom: 0;
   }
   &.affix-top {
-    margin-bottom: -150px;
+    margin-bottom: -120px;
   }
   &.affix {
     position: fixed;
@@ -14,22 +15,30 @@
   }
   text-align:center;
   text-transform: uppercase;
-  height: 150px;
+  height: 120px;
   background: #fff;
   border-bottom: 1px solid @pink;
+  .container {
+    display: table;
+    padding-left: 0;
+    padding-right: 0;
+    line-height: 117px;
+    width: 100%;
+  }
   .navbar-right, .navbar-left {
-    display: inline-block;
-    width: 385px;
-    vertical-align: top;
-    margin-top: 60px;
+    width: 40%;
+    display: table-cell;
     .container_hex {
       display: inline-block;
       line-height: 30px;
+      height: 8px;
+      width: 8px;
+      position: relative;
       .hex {
-        font-weight: bold;
-        color: #000;
-        vertical-align: text-bottom;
-        font-size: 8px;
+        display: block;
+        position: absolute;
+        top: -2px;
+        content: url('/static/img/hex_white.svg');
       }
     }
     li {
@@ -42,39 +51,44 @@
           border-bottom: 2px solid @bord;
         }
       }
-      &.active {
+      &.active, &:hover {
         a {
           color: @bord;
           border-bottom: 2px solid @bord;
         }
         .hex {
-          color: @bord;
+          content: url('/static/svg/hex_bord.svg');
         }
       }
     }
   }
   .navbar-left li {
-    margin-right: 30px;
+    margin-right: 20px;
     .container_hex {
-      margin-right: 15px;
+      margin-right: 10px;
     }
   }
   .navbar-right li {
-    margin-left: 30px;
+    margin-left: 20px;
     .container_hex {
-      margin-left: 15px;
+      margin-left: 10px;
     }
   }
 
-  .logo {
-    vertical-align: top;
-    display: inline-block;
-    margin-top: 20px;
-    width: 160px;
-    height: 96px;
-    background: url('/static/img/logo/160_pink.png');
-    &:hover {
-      background: url('/static/img/logo/160_bord.png');
+  .container_logo {
+    display: table-cell;
+    vertical-align: middle;
+    width: 20%;
+    .logo {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      width: 160px;
+      height: 96px;
+      background: url('/static/img/logo/160_pink.png');
+      &:hover {
+        background: url('/static/img/logo/160_bord.png');
+      }
     }
   }
 }
