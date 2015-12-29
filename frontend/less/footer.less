@@ -6,6 +6,7 @@ footer {
   width: 100%;
   min-height: 300px;
   padding-top: 50px;
+  padding-bottom: 36px;
 
   .panel {
     border: 5px solid @brand-primary;
@@ -83,5 +84,18 @@ footer {
     .heading {
       font-size: 20px;
     }
+  }
+  .copyright {
+    line-height: 30px;
+    a {
+      color: #000;
+      &:hover{
+        color: @bord;
+      }
+    }
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: @pink;
   }
 }
