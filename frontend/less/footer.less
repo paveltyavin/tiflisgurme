@@ -1,0 +1,87 @@
+
+footer {
+  background: url('/static/img/footer_bg.jpg');
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 300px;
+  padding-top: 50px;
+
+  .panel {
+    border: 5px solid @brand-primary;
+    .panel-body {
+      display: block;
+      padding: 25px 10px;
+      background: @brand-primary;
+      border: 1px solid @bord;
+      text-align: center;
+      text-transform: uppercase;
+      color: @bord;
+      &:hover {
+        color: #fff;
+        border-color: #fff;
+        cursor: pointer;
+      }
+    }
+
+    &.social {
+      .panel-body {
+        padding: 15px;
+        .social_list {
+          display: inline-block;
+          margin: 0;
+          li {
+            text-align: center;
+            a {
+              font-size: 20px;
+              padding: 5px;
+              height: 40px;
+              width: 40px;
+              border-radius: 20px;
+              border: 1px solid @bord;
+              display: inline-block;
+              vertical-align: baseline;
+              color: @bord;
+              &:hover {
+                color: #fff;
+                border-color: #fff;
+              }
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    &.vacancy {
+      margin-bottom: 50px;
+    }
+    &.production {
+      .heading {
+        margin-bottom: 15px;
+      }
+      .panel-body {
+        height: 216px;
+      }
+    }
+    &.friends {
+      .image {
+        display: block;
+        margin-top: 40px;
+        width: 190px;
+        height: 30px;
+        background: url('/static/img/salvador_bord.png');
+      }
+      .panel-body {
+        height: 216px;
+      }
+      &:hover {
+        .image {
+          background: url('/static/img/salvador_white.png');
+        }
+      }
+    }
+    .heading {
+      font-size: 20px;
+    }
+  }
+}

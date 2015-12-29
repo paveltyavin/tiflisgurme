@@ -3,7 +3,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}"/>
     <link href='https://fonts.googleapis.com/css?family=Kurale&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="{% static 'vendor.js' %}"></script>
@@ -13,32 +13,34 @@
 {% block pre_content %}{% endblock %}
 {% include 'navbar.html' %}
 <div class="content">
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </div>
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <div class="panel vacancy">
-                    <a class="panel-body" href="#">
-                        Вакансии
+                    <a class="panel-body" href="/vacancy/">
+                        <div class="heading">
+                            Вакансии
+                        </div>
                     </a>
                 </div>
                 <div class="panel social">
                     <div class="panel-body">
                         <ul class="social_list list-unstyled list-inline">
                             <li>
-                                <a href="#">
+                                <a href="https://www.instagram.com/tiflisgurme/">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="http://vk.com/tiflisgurme">
                                     <i class="fa fa-vk"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="https://www.facebook.com/TiflisGurme/?pnref=lhc">
                                     <i class="fa fa-instagram"></i>
                                 </a>
                             </li>
@@ -46,18 +48,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="panel production">
-                    <div class="panel-body">
-                        Наша продукция
-                    </div>
+                    <a class="panel-body" href="#">
+                        <div class="heading">
+                            Наша продукция
+                        </div>
+                        <img src="{% static 'img/anabella.jpg' %}" alt="">
+                    </a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="panel friends">
-                    <div class="panel-body">
-                        Наши друзья
-                    </div>
+                    <a class="panel-body" href="http://salvadordali.center/">
+                        <div class="heading">
+                            Наши друзья
+                        </div>
+                        <span class="image"></span>
+                    </a>
                 </div>
             </div>
         </div>
