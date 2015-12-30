@@ -6,7 +6,8 @@ from django.shortcuts import redirect
 from django.utils.timezone import now, make_naive
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-from shop.models import HomeImage, Category
+from django.views.generic.list import ListView
+from shop.models import HomeImage, Category, Vacancy
 
 
 class StubView(TemplateView):
@@ -48,8 +49,9 @@ class ShippingView(TemplateView):
     template_name = 'shipping.html'
 
 
-class VacancyView(TemplateView):
-    template_name = 'shipping.html'
+class VacancyView(ListView):
+    template_name = 'vacancy.html'
+    model = Vacancy
 
 
 class NewsView(TemplateView):

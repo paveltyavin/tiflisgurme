@@ -62,3 +62,17 @@ class Phone(models.Model):
 
     def __str__(self):
         return self.value or 'телефон'
+
+
+class Vacancy(models.Model):
+    name = models.CharField(max_length=256, verbose_name='Название')
+    text = models.TextField(verbose_name='Текст', default='')
+    ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
+
+    class Meta:
+        verbose_name = 'Вакансия'
+        verbose_name_plural = 'Вакансии'
+        ordering = ('ordering',)
+
+    def __str__(self):
+        return self.name or 'вакансия'

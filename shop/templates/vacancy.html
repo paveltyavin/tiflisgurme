@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block body_class %}body_vacancy{% endblock %}
+{% block content %}
+    <div class="row image_list">
+        <div class="col-xs-6">
+            <img src="{% static 'img/vacancy/1.jpg' %}" alt="">
+        </div>
+        <div class="col-xs-6">
+            <img src="{% static 'img/vacancy/2.jpg' %}" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="container_heading">
+                    <span class="heading">«Горящие вакансии»</span>
+                </div>
+                Если у вас есть желание работать в нашей команде, <br>
+                присылайте свое резюме на е-мейл <span class="email">mail@tiflisgurme.com</span>
+                <div class="vacancy_list">
+                    {% for vacancy in vacancy_list %}
+                        <div class="vacancy_item">
+                            <div class="name">{{ vacancy.name }}</div>
+                            {{ vacancy.text }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
