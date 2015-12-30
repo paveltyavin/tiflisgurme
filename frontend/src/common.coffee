@@ -7,6 +7,10 @@ module.exports = ->
         height = $('.container_welcome').outerHeight(true)
         return height
 
+  container_padding = parseInt($('.content').css('padding-top').replace('px', ''))
+  console.log 'container_padding', container_padding
+  $('.content').css('padding-top', container_padding + 120);
+
   $('.ribbon').affix
     offset:
       top: ->

@@ -4,27 +4,39 @@
 {% block content %}
     <div class="row image_list">
         <div class="col-xs-4">
+            <img src="{% static 'img/shipping/1.jpg' %}" alt="">
         </div>
         <div class="col-xs-4">
+            <img src="{% static 'img/shipping/2.jpg' %}" alt="">
         </div>
         <div class="col-xs-4">
+            <img src="{% static 'img/shipping/3.jpg' %}" alt="">
         </div>
     </div>
-    <div class="container">
+    <div class="container container_address">
         <div class="row">
             <div class="col-md-7">
                 <script type="text/javascript" charset="utf-8"
-                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ZyFtR8qkMMoz2qmkVlai3FXByKjpZYB_&width=643&height=507&lang=ru_RU&sourceType=constructor"></script>
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=_rWVMy1tZIYEvxqugMm-hh5ufglgNM2Q&width=100%&height=400&lang=ru_RU&sourceType=constructor"></script>
             </div>
-            <div class="col-md-5">
-                Для того, чтобы заказать доставку, <br>
-                позвоните нам по номеру:
-                <ul class="phone_list list-unstyled">
-                    <li>+7 916 081 77 77</li>
-                    <li>+7 916 111 42 11</li>
-                </ul>
-                <hr>
-                Доставка осуществляется в пределах обозначенной зоны.
+            <div class="col-md-4 address">
+                Доставка работает ежедневно. <br>
+                Заказы принимаются с 10:00 до 23:00 <br>
+                по будням и с 11.00 по выходным. <br>
+
+                {% if phone_list.all.exists %}
+                    <p></p>
+                    Для того, чтобы заказать доставку, <br>
+                    позвоните нам по номеру:
+                    <p></p>
+                    <ul class="phone_list list-unstyled">
+                        {% for phone in phone_list %}
+                            <li>{{ phone.value }}</li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    Доставка осуществляется в пределах обозначенной зоны.
+                {% endif %}
             </div>
         </div>
     </div>
