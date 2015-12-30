@@ -6,7 +6,7 @@ footer {
   width: 100%;
   min-height: 300px;
   padding-top: 50px;
-  padding-bottom: 36px;
+  padding-bottom: 50px;
 
   .panel {
     border: 5px solid @brand-primary;
@@ -86,10 +86,11 @@ footer {
     }
   }
   .copyright {
+    border-top: 1px solid @bord;
     line-height: 30px;
     a {
       color: #000;
-      &:hover{
+      &:hover {
         color: @bord;
       }
     }
@@ -97,5 +98,12 @@ footer {
     position: absolute;
     bottom: 0;
     background: @pink;
+    .code {
+      float: right;
+      padding-right: 5px;
+    }
+    .design {
+      text-align: center;
+    }
   }
 }

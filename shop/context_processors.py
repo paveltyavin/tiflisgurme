@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.utils.timezone import now, make_naive
+from shop.models import Phone
 
 WEEKDAY_DICT = {
     0: 'понедельник',
@@ -12,10 +13,15 @@ WEEKDAY_DICT = {
 }
 
 
+def get_phone_list():
+    return Phone.objects.all()
+
+
 def base(request):
     result = {
         'DEBUG': settings.DEBUG,
         'now': now,
+        'phone_list': get_phone_list
     }
 
     n = make_naive(now())

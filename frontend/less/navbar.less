@@ -65,7 +65,10 @@
   .navbar-left {
     text-align: right;
     li {
-      margin-right: 20px;
+      margin-left: 20px;
+      &:first-child {
+        margin-left: 0
+      }
       .container_hex {
         margin-right: 10px;
       }
@@ -74,7 +77,10 @@
   .navbar-right {
     text-align: left;
     li {
-      margin-left: 20px;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0
+      }
       .container_hex {
         margin-left: 10px;
       }
@@ -84,7 +90,7 @@
   .container_logo {
     display: table-cell;
     vertical-align: middle;
-    width: 20%;
+    width: 200px;
     .logo {
       margin-left: auto;
       margin-right: auto;

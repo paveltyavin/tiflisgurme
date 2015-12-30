@@ -49,3 +49,16 @@ class Category(models.Model):
         verbose_name = 'Категория товаров'
         verbose_name_plural = 'Категории товаров'
         ordering = ('ordering',)
+
+
+class Phone(models.Model):
+    value = models.CharField(max_length=256, verbose_name='Значение')
+    ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
+
+    class Meta:
+        verbose_name = 'Телефон'
+        verbose_name_plural = 'Телефоны'
+        ordering = ('ordering',)
+
+    def __str__(self):
+        return self.value or 'телефон'
