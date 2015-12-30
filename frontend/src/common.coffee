@@ -1,30 +1,63 @@
 $ = require 'jquery'
+backbone = require 'backbone'
+marionette = require 'backbone.marionette'
 
-module.exports = ->
-  $('.navbar').affix
-    offset:
-      top: ->
-        height = $('.container_welcome').outerHeight(true)
-        return height
+class NavbarSmallView extends marionette.ItemView
+  className: 'navbar_small'
+  template: require './templates/navbar_small'
+  events:
+    'click .expand': 'onClickExpand'
+  onRender: =>
+    @$el.affix
+      offset:
+        top: ->
+          return $('.container_welcome').outerHeight(true)
+  onClickExpand: (event) =>
+    event.preventDefault()
+    @$('.region_expand').removeClass('hide')
 
-  container_padding = parseInt($('.content').css('padding-top').replace('px', ''))
-  console.log 'container_padding', container_padding
-  $('.content').css('padding-top', container_padding + 120);
 
-  $('.ribbon').affix
-    offset:
-      top: ->
-        height = $('.container_welcome').outerHeight(true)
-        height -= 60
-        return height
+class NavbarBigView extends marionette.ItemView
+  className: 'navbar_big'
+  template: require './templates/navbar_big'
+  onRender: =>
+    @$el.affix
+      offset:
+        top: ->
+          return $('.container_welcome').outerHeight(true)
 
-  $('.ribbon').on 'affix.bs.affix', =>
-    $('.ribbon .social_list').hide()
-  $('.ribbon').on 'affix-top.bs.affix', =>
-    setTimeout ->
-      if $('.ribbon').hasClass 'affix-top'
-        $('.ribbon .social_list').fadeIn().css("display", "inline-block");
-    , 300
 
-  if $('.ribbon').hasClass 'affix'
-    $('.ribbon .social_list').hide()
+class CommonView extends marionette.LayoutView
+  el: 'body'
+  regions:
+    'region_navbar': '.region_navbar'
+
+  onResize: =>
+    width = $(window).width()
+    mode = if width < 768 then 'small' else 'big'
+    @model.set 'mode', mode
+
+    footer_height = $('footer').height()
+    $('body').css 'margin-bottom', footer_height + 150 + 'px'
+
+  onChangeMode: (model, value) =>
+    NavbarView = null
+    if value is 'big'
+      NavbarView = NavbarBigView
+    if value is 'small'
+      NavbarView = NavbarSmallView
+    if NavbarView
+      view = new NavbarView
+      @region_navbar.show(view)
+      $(window).trigger 'scroll'
+
+
+  onLoad: =>
+    @listenTo @model, 'change:mode', @onChangeMode
+    $(window).on 'resize', @onResize
+    @onResize()
+
+view = new CommonView
+  model: new backbone.Model()
+
+module.exports = view.onLoad

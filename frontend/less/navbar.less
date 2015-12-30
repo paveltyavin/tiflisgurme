@@ -1,5 +1,11 @@
-.navbar {
+@navbar_big_li_margin: 10px;
+.navbar_big {
   letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+  height: 120px;
+  background: #fff;
+  border-bottom: 1px solid @pink;
   ul {
     margin-bottom: 0;
   }
@@ -13,11 +19,6 @@
     opacity: 0.9;
     z-index: 10;
   }
-  text-align: center;
-  text-transform: uppercase;
-  height: 120px;
-  background: #fff;
-  border-bottom: 1px solid @pink;
   .container {
     display: table;
     padding-left: 0;
@@ -65,24 +66,44 @@
   .navbar-left {
     text-align: right;
     li {
-      margin-left: 20px;
+      margin-left: @navbar_big_li_margin;
       &:first-child {
         margin-left: 0
       }
       .container_hex {
-        margin-right: 10px;
+        margin-right: @navbar_big_li_margin/2;
       }
     }
   }
   .navbar-right {
     text-align: left;
     li {
-      margin-right: 20px;
+      margin-right: @navbar_big_li_margin;
       &:last-child {
         margin-right: 0
       }
       .container_hex {
-        margin-left: 10px;
+        margin-left: @navbar_big_li_margin/2;
+      }
+    }
+  }
+  @media (max-width: @screen-sm-max) {
+    .navbar-left li, .navbar-right li {
+      font-size: 18px;
+    }
+
+    .navbar-left li {
+      margin-left: @navbar_big_li_margin/2;
+      .container_hex {
+        margin-right: @navbar_big_li_margin/4;
+      }
+    }
+
+    .navbar-right li {
+      margin-right: @navbar_big_li_margin/2;
+
+      .container_hex {
+        margin-left: @navbar_big_li_margin/4;
       }
     }
   }
@@ -102,5 +123,55 @@
         background: url('/static/img/logo/160_bord.png');
       }
     }
+  }
+}
+
+.navbar_small {
+  width: 100%;
+  border-bottom: 1px solid @pink;
+  background: #fff;
+  .region_original {
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid @pink;
+    width: 100%;
+    display: table;
+    .container_expand {
+      vertical-align: middle;
+      display: table-cell;
+      padding-left: 5px;
+      .expand {
+        color: @pink;
+        font-size: 20px;
+      }
+    }
+    .container_logo {
+      width: 100%;
+      text-align: center;
+      display: table-cell;
+      .logo {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 90px;
+        height: 54px;
+        background: url('/static/img/logo/90_pink.png');
+      }
+    }
+    .container_lang {
+      padding-right: 5px;
+      display: table-cell;
+      vertical-align: middle;
+      .lang {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.region_navbar {
+  height: 60px;
+  @media (min-width: @screen-sm-min) {
+    height: 120px;
   }
 }

@@ -34,6 +34,26 @@ class HomeView
       $(".container_slider").scrollLeft(sl - d)
       return false
 
+  ribbon: =>
+    $('.ribbon').affix
+      offset:
+        top: ->
+          height = $('.container_welcome').outerHeight(true)
+          height -= 60
+          return height
+
+    $('.ribbon').on 'affix.bs.affix', =>
+      $('.ribbon .social_list').hide()
+    $('.ribbon').on 'affix-top.bs.affix', =>
+      setTimeout ->
+        if $('.ribbon').hasClass 'affix-top'
+          $('.ribbon .social_list').fadeIn().css("display", "inline-block");
+      , 300
+
+    if $('.ribbon').hasClass 'affix'
+      $('.ribbon .social_list').hide()
+
+
   init: =>
     $(window).mousewheel @mousewheel
     n = $('.navbar').innerHeight()
@@ -47,6 +67,8 @@ class HomeView
       $('html, body').animate
         scrollTop: target.offset().top
       , 1000
+
+    @ribbon()
 
 
 home = new HomeView
