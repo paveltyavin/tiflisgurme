@@ -14,7 +14,7 @@ class NavbarSmallView extends marionette.ItemView
           return $('.container_welcome').outerHeight(true)
   onClickExpand: (event) =>
     event.preventDefault()
-    @$('.region_expand').removeClass('hide')
+    @$('.region_expand').collapse('toggle')
 
 
 class NavbarBigView extends marionette.ItemView
@@ -30,7 +30,7 @@ class NavbarBigView extends marionette.ItemView
 class CommonView extends marionette.LayoutView
   el: 'body'
   regions:
-    'region_navbar': '.region_navbar'
+    region_navbar: '.region_navbar'
 
   onResize: =>
     width = $(window).width()

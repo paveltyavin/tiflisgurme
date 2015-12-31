@@ -8,6 +8,11 @@ gulp.task 'copy', ->
   .pipe gulp.dest "./dist/fonts/"
 
   gulp.src [
+    './node_modules/jquery/dist/jquery.js'
+  ]
+  .pipe gulp.dest "./dist/"
+
+  gulp.src [
     './copy/**'
   ]
   .pipe gulp.dest "./dist/"

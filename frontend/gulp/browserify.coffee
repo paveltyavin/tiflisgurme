@@ -51,6 +51,8 @@ gulp.task 'build:vendor', ->
     b.require id, expose: id
   b.bundle()
   .pipe source('vendor.js')
+  .pipe buffer()
+  .pipe uglify()
   .pipe gulp.dest('./dist/')
 
 

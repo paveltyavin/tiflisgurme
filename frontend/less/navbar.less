@@ -139,7 +139,7 @@
     .container_expand {
       vertical-align: middle;
       display: table-cell;
-      padding-left: 5px;
+      padding-left: 15px;
       .expand {
         color: @pink;
         font-size: 20px;
@@ -159,11 +159,46 @@
       }
     }
     .container_lang {
-      padding-right: 5px;
+      padding-right: 15px;
       display: table-cell;
       vertical-align: middle;
       .lang {
         font-size: 20px;
+      }
+    }
+  }
+  &.affix-top {
+    margin-bottom: -60px;
+  }
+  &.affix {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .region_expand {
+    background: @yellow;
+    margin-bottom: 0;
+    font-size: 18px;
+    text-align: center;
+    li {
+      line-height: 40px;
+      text-align: center;
+      &:first-child {
+        padding-top: 20px;
+      }
+      a {
+
+      }
+      &:after {
+        display: block;
+        content: url('/static/svg/hex_pink.svg');
+      }
+      &:last-child {
+        &:after {
+          content: "";
+        }
+        padding-bottom: 20px;
       }
     }
   }
