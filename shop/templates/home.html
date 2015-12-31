@@ -34,9 +34,7 @@
     <div class="container_welcome">
         <div class="welcome_image"></div>
         <div class="container_logo">
-            <div>
-                <img src="{% static 'img/logo/315_white.png' %}" class="logo">
-            </div>
+            <div class="image"></div>
             Кафе-хинкальная для всей семьи
         </div>
         <div class="today">
@@ -72,4 +70,15 @@
             {% endfor %}
         </div>
     </div>
+    <script>
+        var w = window,
+                d = document,
+                e = d.documentElement,
+                g = d.getElementsByTagName('body')[0],
+                x = w.innerWidth || e.clientWidth || g.clientWidth,
+                y = w.innerHeight || e.clientHeight || g.clientHeight;
+        var welcome_el = d.getElementsByClassName('container_welcome')[0];
+        welcome_el.style.height = y + 'px';
+
+    </script>
 {% endblock %}

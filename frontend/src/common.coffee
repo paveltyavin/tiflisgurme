@@ -3,7 +3,7 @@ backbone = require 'backbone'
 marionette = require 'backbone.marionette'
 
 class NavbarSmallView extends marionette.ItemView
-  className: 'navbar_small'
+  className: 'navbar_small navbar'
   template: require './templates/navbar_small'
   events:
     'click .expand': 'onClickExpand'
@@ -15,10 +15,14 @@ class NavbarSmallView extends marionette.ItemView
   onClickExpand: (event) =>
     event.preventDefault()
     @$('.region_expand').collapse('toggle')
+    if @$('.region_expand').hasClass 'in'
+      null
+    else
+      null
 
 
 class NavbarBigView extends marionette.ItemView
-  className: 'navbar_big'
+  className: 'navbar_big navbar'
   template: require './templates/navbar_big'
   onRender: =>
     @$el.affix

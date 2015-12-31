@@ -59,7 +59,6 @@ class HomeView
     n = $('.navbar').innerHeight()
     height = $(window).height()
     @resizeSlider(height - n)
-    $('.container_welcome').css 'height', height
 
     $('.arrow_bottom').on 'click', (event)=>
       event.preventDefault()

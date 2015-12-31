@@ -168,7 +168,6 @@
     }
   }
   &.affix-top {
-    margin-bottom: -60px;
   }
   &.affix {
     z-index: 10;
@@ -177,6 +176,7 @@
     width: 100%;
   }
   .region_expand {
+    z-index: 10;
     background: @yellow;
     margin-bottom: 0;
     font-size: 18px;
@@ -205,6 +205,8 @@
 }
 
 .region_navbar {
+  width: 100%;
+  display: table;
   height: 60px;
   @media (min-width: @screen-sm-min) {
     height: 120px;

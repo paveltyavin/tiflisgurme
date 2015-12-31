@@ -93,12 +93,17 @@
     .welcome_image {
       height: 100%;
       width: 100%;
-      background: url('/static/img/home.jpg') no-repeat center center fixed;
+      background: url('/static/img/home.jpg') no-repeat center center;
       background-size: cover;
     }
     .container_logo {
-      .logo {
-        margin-bottom: 20px;
+      .image {
+        background: url('/static/img/logo/315_white.png') no-repeat center center;
+        height: 189px;
+        @media (max-width: @screen-xs-max) {
+          background: url('/static/img/khink.png') no-repeat center center;
+          height: 100px;
+        }
       }
       position: absolute;
       width: 400px;
