@@ -70,12 +70,10 @@ class CommonView extends marionette.LayoutView
       $(window).trigger 'scroll'
 
 
-  onLoad: =>
+  initialize: =>
     @listenTo @model, 'change:mode', @onChangeMode
     $(window).on 'resize', @onResize
     @onResize()
 
-view = new CommonView
-  model: new backbone.Model()
-
-module.exports = view.onLoad
+module.exports = ->
+  new CommonView({model: new backbone.Model()})

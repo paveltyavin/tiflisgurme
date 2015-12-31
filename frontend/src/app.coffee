@@ -7,6 +7,7 @@ require 'bootstrap'
 router =
   'home/': require './home'
   'shipping/': require './shipping'
+  'menu/': require './menu'
   '': require './common'
 
 

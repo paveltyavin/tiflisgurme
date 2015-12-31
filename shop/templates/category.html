@@ -19,7 +19,7 @@
                 <div class="product_list row">
                     {% for product in category.product_set.all %}
                         <div class="col-md-3">
-                            <div class="product_item">
+                            <div class="product_item" data-id="{{ product.id }}">
                                 <div class="container_image">
                                     {% thumbnail product.image "x150" as im %}
                                         <img src="{{ im.url }}">
@@ -87,4 +87,5 @@
             </div>
         {% endif %}
     </div>
+    <div class="region_modal modal fade"></div>
 {% endblock %}

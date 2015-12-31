@@ -8,7 +8,7 @@
             <div class="category_list row">
                 {% for c in category_list %}
                     <div class="col-md-3">
-                        <a class="category_item" href="{% url 'category' c.id %}" >
+                        <a class="category_item" href="{% url 'category' c.id %}">
                             <div class="container_image">
                                 {% thumbnail c.image "x150" as im %}
                                     <img src="{{ im.url }}">

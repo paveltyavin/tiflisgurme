@@ -117,3 +117,11 @@ def test_error(request):
 def test_mail(request):
     send_mail('test', 'test', settings.DEFAULT_FROM_EMAIL, ['pavel@tyavin.name'])
     return HttpResponse('test email')
+
+
+def robots_view(request):
+    return HttpResponse('')
+
+
+def humans_view(request):
+    return HttpResponse('Tyavin Pavel')

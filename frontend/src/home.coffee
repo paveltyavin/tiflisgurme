@@ -1,7 +1,7 @@
 require './mousewheel'
+marionette = require 'backbone.marionette'
 
-
-class HomeView
+class HomeView extends marionette.ItemView
   getOut: false
   resizeSlider: (height) =>
     $('.slider').height(height)
@@ -54,7 +54,7 @@ class HomeView
       $('.ribbon .social_list').hide()
 
 
-  init: =>
+  initialize: =>
     $(window).mousewheel @mousewheel
     n = $('.navbar').innerHeight()
     height = $(window).height()
@@ -70,6 +70,5 @@ class HomeView
     @ribbon()
 
 
-home = new HomeView
-
-module.exports = home.init
+module.exports = ->
+  new HomeView
