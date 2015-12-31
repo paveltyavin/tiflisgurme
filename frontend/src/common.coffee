@@ -15,10 +15,8 @@ class NavbarSmallView extends marionette.ItemView
   onClickExpand: (event) =>
     event.preventDefault()
     @$('.region_expand').collapse('toggle')
-    if @$('.region_expand').hasClass 'in'
-      null
-    else
-      null
+    @$('.expand').toggleClass 'glyphicon-menu-hamburger'
+    @$('.expand').toggleClass 'glyphicon-remove'
 
 
 class NavbarBigView extends marionette.ItemView
