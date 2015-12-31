@@ -7,7 +7,7 @@ from django.utils.timezone import now, make_naive
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
-from shop.models import HomeImage, Category, Vacancy
+from shop.models import HomeImage, Category, Vacancy, Product
 
 
 class StubView(TemplateView):
@@ -51,10 +51,12 @@ class CategoryView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         try:
-            ctx['category'] = Category.objects.get(id=kwargs.get('pk'))
+            category = Category.objects.get(id=kwargs.get('pk'))
         except Category.DoesNotExist:
             raise Http404
+        ctx['category'] = category
         ctx['category_list'] = Category.objects.all()
+        ctx['product_without_sc'] = category.product_set.filter(sub_category__isnull=True)
         return ctx
 
 

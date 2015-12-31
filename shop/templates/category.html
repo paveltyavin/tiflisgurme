@@ -14,27 +14,77 @@
             </div>
         </div>
 
-        <div class="product_list row">
-            {% for product in category.product_set.all %}
-                <div class="col-md-3">
-                    <div class="product_item">
-                        <div class="container_image">
-                            {% thumbnail product.image "x150" as im %}
+        {% if category.kind == 'table' %}
+            <div class="layout_table">
+                <div class="product_list row">
+                    {% for product in category.product_set.all %}
+                        <div class="col-md-3">
+                            <div class="product_item">
+                                <div class="container_image">
+                                    {% thumbnail product.image "x150" as im %}
+                                        <img src="{{ im.url }}">
+                                    {% endthumbnail %}
+                                </div>
+                                <div class="container_name">
+                                    <div class="name">
+                                        {{ product.name }}
+                                    </div>
+                                </div>
+                                <div class="container_price">
+                                    <div class="price">{{ product.price }} руб.</div>
+                                    <div class="container_buy"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if category.kind == 'menu' %}
+            <div class="layout_menu">
+                <div class="row">
+                    <div class="col-md-6 product_list">
+                        <div class="sc_item">
+                            {% for p in product_without_sc %}
+                                <div class="product_item">
+                                    <div class="container_name">{{ p.name }}</div>
+                                    <div class="container_points">
+                                        <div class="points"></div>
+                                    </div>
+                                    <div class="container_price">
+                                        {{ p.price }} руб.
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% for sc in category.subcategory_set.all %}
+                            <div class="sc_item">
+                                <div class="sc_name">{{ sc.name }}</div>
+                                {% for p in sc.product_set.all %}
+                                    <div class="product_item">
+                                        <div class="container_name">{{ p.name }}</div>
+                                        <div class="container_points">
+                                            <div class="points"></div>
+                                        </div>
+                                        <div class="container_price">
+                                            {{ p.price }} руб.
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="container_category_image">
+                            {% thumbnail category.image "x370" as im %}
                                 <img src="{{ im.url }}">
                             {% endthumbnail %}
                         </div>
-                        <div class="container_name">
-                            <div class="name">
-                                {{ product.name }}
-                            </div>
-                        </div>
-                        <div class="container_price">
-                            <div class="price">{{ product.price }} руб.</div>
-                            <div class="container_buy"></div>
-                        </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

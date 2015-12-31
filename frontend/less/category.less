@@ -42,35 +42,88 @@
     }
   }
 
-  .product_list {
+  .layout_table {
     margin-top: 60px;
-    .product_item {
-      cursor: pointer;
-      border-top: 1px solid @pink;
-      border-bottom: 1px solid @pink;
-      margin-bottom: 50px;
-      .container_image {
-        text-align: center;
-      }
-      .container_name {
-        padding: 10px;
-        display: block;
-        text-transform: uppercase;
+    .product_list {
+      .product_item {
+        cursor: pointer;
+        border-top: 1px solid @pink;
         border-bottom: 1px solid @pink;
-        .name {
-          color: #000;
+        margin-bottom: 50px;
+        .container_image {
+          text-align: center;
         }
-      }
-      .container_price {
-        padding: 10px;
-      }
-
-      &:hover {
-        border-top: 1px solid @bord;
-        border-bottom: 1px solid @bord;
         .container_name {
-          border-bottom: 1px solid @bord;
+          padding: 10px;
+          display: block;
+          text-transform: uppercase;
+          border-bottom: 1px solid @pink;
+          .name {
+            color: #000;
+          }
         }
+        .container_price {
+          padding: 10px;
+        }
+
+        &:hover {
+          border-top: 1px solid @bord;
+          border-bottom: 1px solid @bord;
+          .container_name {
+            border-bottom: 1px solid @bord;
+          }
+        }
+      }
+    }
+  }
+
+  .layout_menu {
+    margin-top: 60px;
+    .product_list {
+      .sc_item{
+        .sc_name{
+          display: block;
+          font-size: 20px;
+          color: @bord;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid @bord;
+      }
+      .product_item {
+        display: table;
+        width: 100%;
+        .container_name {
+          width: 1px;
+          word-break: keep-all;
+          display: table-cell;
+          white-space: nowrap;
+        }
+        .container_points {
+          display: table-cell;
+          vertical-align: bottom;
+          padding-left:4px;
+          padding-right:4px;
+          padding-bottom: 2px;
+          .points {
+            height: 4px;
+            background: url('/static/svg/point.svg') repeat-x;
+          }
+        }
+        .container_price {
+          display: table-cell;
+          width: 70px;
+          text-align: right;
+        }
+      }
+    }
+
+    .container_category_image {
+      text-align: center;
+      img {
+        max-width: 100%;
       }
     }
   }
