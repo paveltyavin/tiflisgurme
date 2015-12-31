@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block body_class %}body_category{% endblock %}
+{% load thumbnail %}
+{% block content %}
+    <div class="container">
+        <div class="container_category_list">
+            <div class="category_list row">
+                {% for c in category_list %}
+                    <div class="category_item col-md-4 {% if c == category %}active{% endif %}">
+                        <a href="{% url 'category' c.id %}">{{ c.name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="product_list row">
+            {% for product in category.product_set.all %}
+                <div class="col-md-3">
+                    <div class="product_item">
+                        <div class="container_image">
+                            {% thumbnail product.image "x150" as im %}
+                                <img src="{{ im.url }}">
+                            {% endthumbnail %}
+                        </div>
+                        <div class="container_name">
+                            <div class="name">
+                                {{ product.name }}
+                            </div>
+                        </div>
+                        <div class="container_price">
+                            <div class="price">{{ product.price }} руб.</div>
+                            <div class="container_buy"></div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

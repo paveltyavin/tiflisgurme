@@ -1,0 +1,33 @@
+.body_menu {
+  .category_list {
+    .category_item {
+      display: block;
+      outline: 1px solid @pink;
+      height: 210px;
+      margin-bottom: 30px;
+      .container_image {
+        text-align: center;
+        height: 150px;
+        img {
+          max-width: 100%;
+        }
+      }
+      .container_name {
+        padding: 10px;
+        display: block;
+        text-transform: uppercase;
+        .name {
+          color: #000;
+        }
+      }
+      &:hover {
+        outline: 2px solid @bord;
+        .container_name {
+          .name {
+            color: @bord;
+          }
+        }
+      }
+    }
+  }
+}

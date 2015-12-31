@@ -1,4 +1,5 @@
 $ = require 'jquery'
+_ = require 'underscore'
 backbone = require 'backbone'
 marionette = require 'backbone.marionette'
 
@@ -22,11 +23,26 @@ class NavbarSmallView extends marionette.ItemView
 class NavbarBigView extends marionette.ItemView
   className: 'navbar_big navbar'
   template: require './templates/navbar_big'
+  routing:
+    home: 'home'
+    shipping: 'shipping'
+    menu: 'menu'
+    news: 'news'
+    contact: 'contact'
+    '': 'home'
+
   onRender: =>
     @$el.affix
       offset:
         top: ->
           return $('.container_welcome').outerHeight(true)
+
+    for key in _.keys(@routing)
+      do (key) =>
+        r = new RegExp(key, 'i')
+        if r.test(window.location.pathname)
+          link = @routing[key]
+          @$("[data-link=#{link}]").addClass 'active'
 
 
 class CommonView extends marionette.LayoutView

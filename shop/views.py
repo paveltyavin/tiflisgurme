@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.core.mail import send_mail
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.utils.timezone import now, make_naive
 from django.views.generic.base import TemplateView
@@ -41,6 +41,19 @@ class MenuView(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        ctx['category_list'] = Category.objects.all()
+        return ctx
+
+
+class CategoryView(TemplateView):
+    template_name = 'category.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        try:
+            ctx['category'] = Category.objects.get(id=kwargs.get('pk'))
+        except Category.DoesNotExist:
+            raise Http404
         ctx['category_list'] = Category.objects.all()
         return ctx
 
@@ -102,4 +115,3 @@ def test_error(request):
 def test_mail(request):
     send_mail('test', 'test', settings.DEFAULT_FROM_EMAIL, ['pavel@tyavin.name'])
     return HttpResponse('test email')
-

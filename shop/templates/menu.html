@@ -1,6 +1,26 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-{% block body_class %}body_home{% endblock %}
+{% block body_class %}body_menu{% endblock %}
+{% load thumbnail %}
 {% block content %}
-    Меню
+    <div class="container">
+        <div class="container_category_list">
+            <div class="category_list row">
+                {% for c in category_list %}
+                    <div class="col-md-3">
+                        <a class="category_item" href="{% url 'category' c.id %}" >
+                            <div class="container_image">
+                                {% thumbnail c.image "x150" as im %}
+                                    <img src="{{ im.url }}">
+                                {% endthumbnail %}
+                            </div>
+                            <div class="container_name">
+                                <div class="name">{{ c.name }}</div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
