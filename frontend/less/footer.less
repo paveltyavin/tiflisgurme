@@ -7,6 +7,9 @@ footer {
   min-height: 300px;
   padding-top: 50px;
   padding-bottom: 50px;
+  @media (max-width: @screen-xs-max) {
+    padding-top: 10px;
+  }
 
   .panel {
     border: 5px solid @brand-primary;
@@ -26,6 +29,7 @@ footer {
     }
 
     &.social {
+      margin-bottom: 10px;
       .panel-body {
         padding: 15px;
         .social_list {
@@ -55,29 +59,53 @@ footer {
     }
     &.vacancy {
       margin-bottom: 50px;
+      @media (max-width: @screen-xs-max) {
+        margin-bottom: 10px;
+      }
     }
     &.production {
       .heading {
         margin-bottom: 15px;
+        @media (max-width: @screen-xs-max) {
+          margin-bottom: 0;
+        }
       }
       .panel-body {
         height: 216px;
+        @media (max-width: @screen-xs-max) {
+          height: inherit;
+        }
+      }
+      .image {
+        margin-left: auto;
+        margin-right: auto;
+        height: 121px;
+        @media (max-width: @screen-xs-max) {
+          height: 40px;
+        }
+        background: url('/static/img/anabella.jpg') center no-repeat;
       }
     }
     &.friends {
       .image {
-        display: block;
         margin-top: 40px;
-        width: 190px;
+        @media (max-width: @screen-xs-max) {
+          margin-top: 0px;
+        }
+        margin-left: auto;
+        margin-right: auto;
         height: 30px;
-        background: url('/static/img/salvador_bord.png');
+        background: url('/static/img/salvador_bord.png') center no-repeat;
       }
       .panel-body {
         height: 216px;
+        @media (max-width: @screen-xs-max) {
+          height: inherit;
+        }
       }
       &:hover {
         .image {
-          background: url('/static/img/salvador_white.png');
+          background: url('/static/img/salvador_white.png') center no-repeat;
         }
       }
     }

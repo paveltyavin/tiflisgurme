@@ -12,7 +12,7 @@ gulp.task 'less', ->
     gulp.dest './dist/'
     livereload()
   ])
-  combined.on('error', console.error.bind(console));
+  combined.on('error', console.error.bind(console))
   return combined
 
 gulp.task 'build:less', ->
