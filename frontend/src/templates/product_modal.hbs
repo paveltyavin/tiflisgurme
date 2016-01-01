@@ -1,20 +1,31 @@
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-body">
-            <div class="container_image">
-                <img src="{{image}}" alt="">
+<div class="modal-content">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="container_image">
+                    <img src="{{thumb}}" alt="">
+                </div>
             </div>
-            <div class="container_name">
-                {{image}}
+            <div class="col-md-5">
+                <div class="container_name">
+                    <div class="name">{{name}}</div>
+                </div>
+                <div class="container_desc">
+                    <div class="price">
+                        {{price}} руб.
+                    </div>
+                    <div class="desc">
+                        {{desc}}
+                    </div>
+                </div>
             </div>
-            <div class="container_price">
-                {{price}} руб.
+            <div class="col-md-2 text-center">
+                <div class="container_close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="/static/svg/close.svg">
+                    </button>
+                </div>
             </div>
-            {{desc}}
-            <div class="container_close">
-                <div class="close glyphicon glyphicon-close"></div>
-            </div>
-
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ marionette = require 'backbone.marionette'
 
 
 class ProductModalView extends marionette.ItemView
+  className: 'modal-dialog'
   template: require './templates/product_modal'
 
 

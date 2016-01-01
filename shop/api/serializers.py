@@ -10,7 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
         if obj.image is None:
             return None
         try:
-            t = get_thumbnail(obj.image, 'x150')
+            t = get_thumbnail(obj.image, 'x250')
         except IOError:
             return None
         if t:

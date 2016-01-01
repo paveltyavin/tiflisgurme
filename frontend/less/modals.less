@@ -27,6 +27,21 @@
   &.in .modal-dialog {
     .translate(0, 0)
   }
+
+  text-align: center;
+  padding: 0 !important;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px; /* Adjusts for spacing */
+  }
+
+  .close{
+    outline: none;
+  }
 }
 
 .modal-open .modal {
@@ -37,17 +52,19 @@
 // Shell div to position the modal with bottom padding
 .modal-dialog {
   position: relative;
-  width: auto;
   margin: 10px;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }
 
 // Actual modal
 .modal-content {
-  opacity: 0.8;
+  opacity: 0.85;
   position: relative;
   background-color: @pink;
   color: #fff;
-  border: 1px solid @modal-content-border-color;
+  border: 1px solid rgba(0, 0, 0, .2);;
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
@@ -67,14 +84,13 @@
     .opacity(0);
   }
   &.in {
-    .opacity(@modal-backdrop-opacity);
+    .opacity(.5);
   }
 }
 
-
 .modal-body {
   position: relative;
-  padding: @modal-inner-padding;
+  padding: 15px;
 }
 
 // Measure scrollbar width for padding body during modal show/hide
@@ -86,22 +102,12 @@
   overflow: scroll;
 }
 
-// Scale up the modal
-@media (min-width: @screen-sm-min) {
-  // Automatically set modal's width for larger viewports
-  .modal-dialog {
-    width: @modal-md;
-    margin: 30px auto;
+.modal-dialog {
+  width: 300px;
+  @media (min-width: @screen-sm-min) {
+    width: 600px;
   }
-
-  // Modal sizes
-  .modal-sm {
-    width: @modal-sm;
-  }
-}
-
-@media (min-width: @screen-md-min) {
-  .modal-lg {
-    width: @modal-lg;
+  @media (min-width: @screen-md-min) {
+    width: 900px;
   }
 }

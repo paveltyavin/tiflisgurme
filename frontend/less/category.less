@@ -52,6 +52,9 @@
         margin-bottom: 50px;
         .container_image {
           text-align: center;
+          img{
+            max-width: 100%;
+          }
         }
         .container_name {
           padding: 10px;
@@ -80,8 +83,8 @@
   .layout_menu {
     margin-top: 60px;
     .product_list {
-      .sc_item{
-        .sc_name{
+      .sc_item {
+        .sc_name {
           display: block;
           font-size: 20px;
           color: @bord;
@@ -104,8 +107,8 @@
         .container_points {
           display: table-cell;
           vertical-align: bottom;
-          padding-left:4px;
-          padding-right:4px;
+          padding-left: 4px;
+          padding-right: 4px;
           padding-bottom: 2px;
           .points {
             height: 4px;
@@ -124,6 +127,39 @@
       text-align: center;
       img {
         max-width: 100%;
+      }
+    }
+  }
+
+  .region_modal {
+    .container_image {
+      text-align: center;
+      img {
+        max-width: 100%;
+      }
+    }
+    .container_name {
+      border-bottom: 1px solid #fff;
+      margin-bottom: 10px;
+      .name {
+        text-transform: uppercase;
+        padding: 3px 10px;
+        letter-spacing: 1px;
+      }
+    }
+    .container_desc {
+      padding: 3px 10px;
+      .price{
+
+      }
+      .desc{
+        margin-top:40px;
+        margin-bottom: 30px;
+      }
+    }
+    .container_close{
+      @media (min-width: @screen-md-min) {
+        text-align: right;
       }
     }
   }
