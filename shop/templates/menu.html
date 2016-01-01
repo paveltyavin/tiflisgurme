@@ -10,7 +10,7 @@
                     <div class="col-md-3">
                         <a class="category_item" href="{% url 'category' c.id %}">
                             <div class="container_image">
-                                {% thumbnail c.image "x150" as im %}
+                                {% thumbnail c.image "225x150" crop="center" as im %}
                                     <img src="{{ im.url }}">
                                 {% endthumbnail %}
                             </div>
