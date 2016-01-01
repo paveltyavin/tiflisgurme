@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block body_class %}body_news{% endblock %}
+{% load thumbnail %}
+{% block content %}
+    {% block newsitem %}{% endblock %}
+    <div class="container">
+        <div class="news_list">
+            <div class="row">
+                {% for n in newsitem_list %}
+                    <div class="col-md-4">
+                        <a class="newsitem" href="{% url 'news-detail' n.id %}">
+                            <div class="container_date">
+                                <div class="date">{{ n.date|date:'d.m.Y' }}</div>
+                            </div>
+                            <div class="container_title">
+                                <div class="title">
+                                    {{ n.title }}
+                                </div>
+                            </div>
+                            <div class="container_image">
+                                {% thumbnail n.image "308x200" crop="center" as im %}
+                                    <img src="{{ im.url }}">
+                                {% endthumbnail %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

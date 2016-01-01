@@ -20,10 +20,16 @@ class PhoneAdmin(ModelAdmin):
     list_editable = ('ordering',)
 
 
+class NewsAdmin(ModelAdmin):
+    list_display = ('title', 'ordering')
+    list_editable = ('ordering',)
+
+
 site.register(models.Vacancy, StandardAdmin)
 site.register(models.Product, StandardAdmin)
 site.register(models.Category, StandardAdmin)
 site.register(models.SubCategory, StandardAdmin)
+site.register(models.NewsItem, NewsAdmin)
 
 site.register(models.Phone, PhoneAdmin)
 site.register(models.HomeImage, HomeImageAdmin)

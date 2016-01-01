@@ -5,9 +5,10 @@ from django.http.response import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.utils.timezone import now, make_naive
 from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
-from shop.models import HomeImage, Category, Vacancy, Product
+from shop.models import HomeImage, Category, Vacancy, Product, NewsItem
 
 
 class StubView(TemplateView):
@@ -69,8 +70,19 @@ class VacancyView(ListView):
     model = Vacancy
 
 
-class NewsView(TemplateView):
-    template_name = 'shipping.html'
+class NewsView(ListView):
+    template_name = 'news.html'
+    model = NewsItem
+
+
+class NewsDetailView(DetailView):
+    template_name = 'news_detail.html'
+    model = NewsItem
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['newsitem_list'] = NewsItem.objects.all()
+        return ctx
 
 
 class ContactForm(forms.Form):

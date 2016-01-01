@@ -1,0 +1,34 @@
+{% extends 'news.html' %}
+{% load thumbnail %}
+{% block newsitem %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 newsitem_detail">
+                <div class="container_heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="date">
+                                {{ newsitem.date|date:'d.m.y' }}
+                            </div>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <div class="title">
+                                {{ newsitem.title }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="desc">
+                    {{ newsitem.text }}
+                </div>
+
+                <div class="container_image">
+                    {% thumbnail newsitem.image "600" as im %}
+                        <img src="{{ im.url }}">
+                    {% endthumbnail %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

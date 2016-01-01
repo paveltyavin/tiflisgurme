@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^menu/$', views.MenuView.as_view(), name='menu'),
     url(r'^menu/(?P<pk>\d+)/$', views.CategoryView.as_view(), name='category'),
     url(r'^news/$', views.NewsView.as_view(), name='news'),
+    url(r'^news/(?P<pk>\d+)/$', views.NewsDetailView.as_view(), name='news-detail'),
     url(r'^robots\.txt$', views.robots_view, name='robots'),
     url(r'^humans\.txt$', views.humans_view, name='humans'),
     url(r'^shipping/$', views.ShippingView.as_view(), name='shipping'),

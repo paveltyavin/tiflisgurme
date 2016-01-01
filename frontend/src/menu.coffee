@@ -14,10 +14,11 @@ class ProductItemView extends marionette.ItemView
     'click': 'onClick'
   onClick: =>
     id = @$el.data 'id'
-    $.ajax
-      url: "/api/product/#{id}/"
-      success: (data) =>
-        @trigger 'modal', data
+    @trigger 'modal',
+      name: @$el.data 'name'
+      desc: @$el.data 'desc'
+      price: @$el.data 'price'
+      thumb: @$el.data 'thumb'
 
 
 class MenuView extends marionette.LayoutView

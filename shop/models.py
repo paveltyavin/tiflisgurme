@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
 from django.db import models
+from sorl.thumbnail.shortcuts import get_thumbnail
 
 
 def convert_file_name(instance, filename):
@@ -59,6 +60,18 @@ class Product(models.Model):
                                      verbose_name='Подкатегория', )
     image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='', blank=True)
 
+    def get_thumb(self):
+        if self.image is None:
+            return None
+        try:
+            t = get_thumbnail(self.image, 'x250')
+        except IOError:
+            return None
+        if t:
+            return t.url
+        else:
+            return None
+
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
@@ -109,3 +122,19 @@ class Vacancy(models.Model):
 
     def __str__(self):
         return self.name or 'вакансия'
+
+
+class NewsItem(models.Model):
+    title = models.CharField(max_length=256, verbose_name='Заголовое')
+    text = models.TextField(verbose_name='Текст', default='')
+    ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
+    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='')
+    date = models.DateField(verbose_name='Дата')
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+        ordering = ('ordering',)
+
+    def __str__(self):
+        return self.title
