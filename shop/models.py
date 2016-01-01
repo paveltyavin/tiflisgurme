@@ -36,9 +36,8 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=256, default='', verbose_name='Название')
-    category = models.ForeignKey('shop.Category')
+    category = models.ForeignKey('shop.Category', verbose_name='Категория')
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
-    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение')
 
     class Meta:
         verbose_name = 'Подкатегория'
