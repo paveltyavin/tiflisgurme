@@ -50,14 +50,14 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=256, default='', verbose_name='Название')
-    desc = models.TextField(max_length=4096, default='', verbose_name='Описание')
+    desc = models.TextField(max_length=4096, default='', verbose_name='Описание', blank=True)
     price = models.IntegerField(default=0, verbose_name='Цена')
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
     category = models.ForeignKey('shop.Category', default=None, blank=True, null=True,
                                  verbose_name='Категория', )
     sub_category = models.ForeignKey('shop.SubCategory', default=None, blank=True, null=True,
                                      verbose_name='Подкатегория', )
-    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='')
+    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='', blank=True)
 
     class Meta:
         verbose_name = 'Товар'

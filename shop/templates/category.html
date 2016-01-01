@@ -20,11 +20,13 @@
                     {% for product in category.product_set.all %}
                         <div class="col-md-3">
                             <div class="product_item" data-id="{{ product.id }}">
-                                <div class="container_image">
-                                    {% thumbnail product.image "225x150" upscale=True crop='center'  as im %}
-                                        <img src="{{ im.url }}">
-                                    {% endthumbnail %}
-                                </div>
+                                {% if product.image %}
+                                    <div class="container_image">
+                                        {% thumbnail product.image "225x150" upscale=True crop='center' as im %}
+                                            <img src="{{ im.url }}">
+                                        {% endthumbnail %}
+                                    </div>
+                                {% endif %}
                                 <div class="container_name">
                                     <div class="name">
                                         {{ product.name }}
