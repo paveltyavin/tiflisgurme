@@ -54,6 +54,12 @@ class RibbonView extends marionette.ItemView
     lang = $('html').attr('lang')
     @$("[data-lang=#{lang}]").addClass('active').find('a').removeAttr('href')
 
+  serializeData: =>
+    path = window.location.pathname
+    lang = $('html').attr('lang')
+    path = path.replace("/#{lang}/", '')
+    return {path: path}
+
 
 class NavbarBigView extends marionette.LayoutView
   className: 'navbar_big navbar'
