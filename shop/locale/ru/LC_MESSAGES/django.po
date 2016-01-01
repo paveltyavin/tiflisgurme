@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Pavel Tyavin <pavel@tyavin.name>, 2016
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-01 20:15-0300\n"
+"PO-Revision-Date: 2016-01-01 12:00+0\n"
+"Last-Translator: FULL NAME <pavel@tyavin.name>\n"
+"Language-Team: LANGUAGE <pavel@tyavin.name>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: context_processors.py:9 views.py:20
+msgid "monday"
+msgstr "понедельник"
+
+#: context_processors.py:10 views.py:21
+msgid "tuesday"
+msgstr "вторник"
+
+#: context_processors.py:11 views.py:22
+msgid "wednesday"
+msgstr "среда"
+
+#: context_processors.py:12 views.py:23
+msgid "thursday"
+msgstr "четверг"
+
+#: context_processors.py:13 views.py:24
+msgid "friday"
+msgstr "пятница"
+
+#: context_processors.py:14 views.py:25
+msgid "saturday"
+msgstr "суббота"
+
+#: context_processors.py:15 views.py:26
+msgid "sunday"
+msgstr "понедельник"
+
+#: context_processors.py:33 views.py:39
+msgid "We are open"
+msgstr "Мы открыты"
+
+#: context_processors.py:33 views.py:39
+msgid "We are closed"
+msgstr "Мы закрыты"
+
+#: templates/base.html:26
+msgid "Vacancies"
+msgstr "Вакансии"
+
+#: templates/base.html:57
+msgid "Our production"
+msgstr "Наша продукция"
+
+#: templates/base.html:69
+msgid "Our friends"
+msgstr "Наши друзья"
+
+#: templates/category.html:43 templates/category.html.py:66
+#: templates/category.html:82
+msgid "rub"
+msgstr "руб"
+
+#: templates/contact.html:16
+msgid "Cafe-Khinkalnaya"
+msgstr "Кафе-Хинкальная"
+
+#: templates/contact.html:17
+msgid "«Tiflis Gourme»"
+msgstr "«Тифлис Гурмэ»"
+
+#: templates/contact.html:19
+msgid "Staropetrovskiy proezd"
+msgstr "Старопетровский пр-д."
+
+#: templates/contact.html:20
+msgid "1 m. Voykovskaya"
+msgstr "1 м. Войковская"
+
+#: templates/contact.html:53 templates/home.html:44
+msgid "Today"
+msgstr "Сегодня"
+
+#: templates/contact.html:69
+msgid "Write a message and me will answer for sure!"
+msgstr "Напишите нам, и мы вам обязательно ответим!"
+
+#: templates/contact.html:92
+msgid "Send"
+msgstr ""
+
+#: templates/contact.html:97
+msgid "Sent!"
+msgstr "Отправлено!"
+
+#: templates/contact.html:100
+msgid "Send another message?"
+msgstr "Отправить новое письмо?"
+
+#: templates/stub.html:15
+msgid "Our site is under construction"
+msgstr "Наш сайт в процессе создания"
+
+#: templates/vacancy.html:19
+msgid "Hot vacancies"
+msgstr "«Горящие вакансии»"
+
+#: views.py:92
+msgid "Name"
+msgstr "Имя"
+
+#: views.py:93
+msgid "Phone"
+msgstr "Телефон"
+
+#: views.py:100
+msgid "Message Text"
+msgstr "Текст сообщения"

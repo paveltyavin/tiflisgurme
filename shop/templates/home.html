@@ -2,15 +2,17 @@
 {% load static from staticfiles %}
 {% block body_class %}body_home{% endblock %}
 {% load thumbnail %}
+{% load shop_tags %}
+{% load i18n %}
 {% block pre_content %}
     <div class="ribbon hidden-xs hidden-sm">
         <div class="angle"></div>
         <ul class="lang_list list-unstyled list-inline">
             <li {% if LANGUAGE_CODE == 'ru' %}class="active"{% endif %}>
-                <a {% if LANGUAGE_CODE != 'ru' %}href="http://tiflisgurme.com/"{% endif %}>RUS</a>
+                <a {% if LANGUAGE_CODE != 'ru' %}href="{% change_lang request 'ru' %}"{% endif %}>RUS</a>
             </li>
             <li {% if LANGUAGE_CODE == 'en' %}class="active"{% endif %}>
-                <a {% if LANGUAGE_CODE != 'en' %}href="http://en.tiflisgurme.com/"{% endif %}>EN</a>
+                <a {% if LANGUAGE_CODE != 'en' %}href="{% change_lang request 'en' %}"{% endif %}>EN</a>
             </li>
         </ul>
         <ul class="social_list list-unstyled list-inline">
@@ -35,11 +37,11 @@
         <div class="welcome_image"></div>
         <div class="container_logo">
             <div class="image"></div>
-            Кафе-хинкальная для всей семьи
+            {% text_block 'title' %}
         </div>
         <div class="today">
             <span class="glyphicon glyphicon-time"></span>
-            {{ now|date:"H:i" }} ― Сегодня {{ weekday }}. {{ open_text }}
+            {{ now|date:"H:i" }} ― {% trans 'Today' %} {{ weekday }}. {{ open_text }}
         </div>
         <a href="#" class="arrow_bottom">
             <i class="fa fa-angle-double-down"></i>
@@ -48,13 +50,7 @@
 {% endblock %}
 {% block content %}
     <div class="container welcome_text">
-        Это кафе было открыто для себя и для друзей, и поэтому о вкусовых качествах и о качестве самой еды разговаривать
-        бессмысленно. В нем собраны лучшие повара грузинской кухни и вся команда, можно сказать, это одна большая
-        семья, а это уже говорит о многом!
-
-        <p></p>
-        Обычно после громких слов появляются высокие ожидания, но наши слова недостаточно громки по сравнению с
-        наслаждением, которое получают <br> наши гости!
+        {% text_block 'welcome_text' %}
     </div>
     <div class="container_khink">
         <img src="{% static 'img/khink.png' %}" alt="">

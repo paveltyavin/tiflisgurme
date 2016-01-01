@@ -2,6 +2,7 @@
 {% load static from staticfiles %}
 {% block body_class %}body_category{% endblock %}
 {% load thumbnail %}
+{% load i18n %}
 {% block content %}
     <div class="container">
         <div class="container_category_list">
@@ -39,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="container_price">
-                                    <div class="price">{{ product.price }} руб.</div>
+                                    <div class="price">{{ product.price }} {% trans 'rub' %}</div>
                                     <div class="container_buy"></div>
                                 </div>
                             </div>
@@ -62,7 +63,7 @@
                                             <div class="points"></div>
                                         </div>
                                         <div class="container_price">
-                                            {{ p.price }} руб.
+                                            {{ p.price }} {% trans 'rub' %}.
                                         </div>
                                     </div>
                                 {% endfor %}
@@ -78,7 +79,7 @@
                                             <div class="points"></div>
                                         </div>
                                         <div class="container_price">
-                                            {{ p.price }} руб.
+                                            {{ p.price }} {% trans 'rub' %}.
                                         </div>
                                     </div>
                                 {% endfor %}

@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Pavel Tyavin <pavel@tyavin.name>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-01 20:15-0300\n"
+"PO-Revision-Date: 2016-01-01 12:00+0\n"
+"Last-Translator: FULL NAME <pavel@tyavin.name>\n"
+"Language-Team: LANGUAGE <pavel@tyavin.name>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: context_processors.py:9 views.py:20
+msgid "monday"
+msgstr ""
+
+#: context_processors.py:10 views.py:21
+msgid "tuesday"
+msgstr ""
+
+#: context_processors.py:11 views.py:22
+msgid "wednesday"
+msgstr ""
+
+#: context_processors.py:12 views.py:23
+msgid "thursday"
+msgstr ""
+
+#: context_processors.py:13 views.py:24
+msgid "friday"
+msgstr ""
+
+#: context_processors.py:14 views.py:25
+msgid "saturday"
+msgstr ""
+
+#: context_processors.py:15 views.py:26
+msgid "sunday"
+msgstr ""
+
+#: context_processors.py:33 views.py:39
+msgid "We are open"
+msgstr ""
+
+#: context_processors.py:33 views.py:39
+msgid "We are closed"
+msgstr ""
+
+#: templates/base.html:26
+msgid "Vacancies"
+msgstr ""
+
+#: templates/base.html:57
+msgid "Our production"
+msgstr ""
+
+#: templates/base.html:69
+msgid "Our friends"
+msgstr ""
+
+#: templates/category.html:43 templates/category.html.py:66
+#: templates/category.html:82
+msgid "rub"
+msgstr ""
+
+#: templates/contact.html:16
+msgid "Cafe-Khinkalnaya"
+msgstr ""
+
+#: templates/contact.html:17
+msgid "«Tiflis Gourme»"
+msgstr ""
+
+#: templates/contact.html:19
+msgid "Staropetrovskiy proezd"
+msgstr ""
+
+#: templates/contact.html:20
+msgid "1 m. Voykovskaya"
+msgstr ""
+
+#: templates/contact.html:53 templates/home.html:44
+msgid "Today"
+msgstr ""
+
+#: templates/contact.html:69
+msgid "Write a message and me will answer for sure!"
+msgstr ""
+
+#: templates/contact.html:92
+msgid "Send"
+msgstr ""
+
+#: templates/contact.html:97
+msgid "Sent!"
+msgstr ""
+
+#: templates/contact.html:100
+msgid "Send another message?"
+msgstr ""
+
+#: templates/stub.html:15
+msgid "Our site is under construction"
+msgstr ""
+
+#: templates/vacancy.html:19
+msgid "Hot vacancies"
+msgstr ""
+
+#: views.py:92
+msgid "Name"
+msgstr ""
+
+#: views.py:93
+msgid "Phone"
+msgstr ""
+
+#: views.py:100
+msgid "Message Text"
+msgstr ""

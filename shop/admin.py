@@ -25,11 +25,31 @@ class NewsAdmin(ModelAdmin):
     list_editable = ('ordering',)
 
 
+class TextBlockAdmin(ModelAdmin):
+    list_display = ('name',)
+
+
+class ProductAdmin(ModelAdmin):
+    list_display = ('name', 'ordering', 'price')
+    list_editable = ('ordering', 'price',)
+    fields = (
+        ('name_ru', 'name_en'),
+        ('desc_ru', 'desc_en'),
+        ('portion_ru', 'portion_en'),
+
+        'price',
+        'category',
+        'sub_category',
+        'image',
+    )
+
+
 site.register(models.Vacancy, StandardAdmin)
-site.register(models.Product, StandardAdmin)
+site.register(models.Product, ProductAdmin)
 site.register(models.Category, StandardAdmin)
 site.register(models.SubCategory, StandardAdmin)
 site.register(models.NewsItem, NewsAdmin)
+site.register(models.TextBlock, TextBlockAdmin)
 
 site.register(models.Phone, PhoneAdmin)
 site.register(models.HomeImage, HomeImageAdmin)

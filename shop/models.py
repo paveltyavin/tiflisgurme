@@ -1,6 +1,7 @@
-# -*- coding: utf-8 -*-
 import random
 from django.db import models
+from django.conf import settings
+from django.utils.translation import get_language
 from sorl.thumbnail.shortcuts import get_thumbnail
 
 
@@ -12,7 +13,19 @@ def convert_file_name(instance, filename):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=256, verbose_name='Название')
+    name_ru = models.CharField(
+        max_length=256,
+        default='',
+        verbose_name='Название',
+        help_text='Например, "Чай и кофе"',
+    )
+    name_en = models.CharField(
+        max_length=256,
+        verbose_name='Название (англ.)',
+        default='',
+        help_text='Например, "Tea and coffee"',
+    )
+
     image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение')
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
     kind = models.CharField(
@@ -26,6 +39,10 @@ class Category(models.Model):
         help_text='',
     )
 
+    @property
+    def name(self):
+        return getattr(self, 'name_{}'.format(get_language()))
+
     def __str__(self):
         return self.name
 
@@ -36,9 +53,25 @@ class Category(models.Model):
 
 
 class SubCategory(models.Model):
-    name = models.CharField(max_length=256, default='', verbose_name='Название')
+    name_ru = models.CharField(
+        max_length=256,
+        default='',
+        verbose_name='Название',
+        help_text='Например, "Чай"',
+    )
+    name_en = models.CharField(
+        max_length=256,
+        verbose_name='Название (англ.)',
+        default='',
+        help_text='Например, "Tea"',
+    )
+
     category = models.ForeignKey('shop.Category', verbose_name='Категория')
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
+
+    @property
+    def name(self):
+        return getattr(self, 'name_{}'.format(get_language()))
 
     class Meta:
         verbose_name = 'Подкатегория'
@@ -50,15 +83,78 @@ class SubCategory(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=256, default='', verbose_name='Название')
-    desc = models.TextField(max_length=4096, default='', verbose_name='Описание', blank=True)
+    name_ru = models.CharField(
+        max_length=256,
+        default='',
+        verbose_name='Название (рус.)',
+        help_text='Например, "Хачапури по аджарски"',
+    )
+    desc_ru = models.TextField(
+        max_length=4096,
+        default='',
+        verbose_name='Описание (рус.)',
+        blank=True,
+        help_text='Например, "Хачапури в форме лодочки . Начинкой из сулугуни и сырого яйца"',
+    )
+    portion_ru = models.CharField(
+        verbose_name='Порция (рус.)',
+        max_length=128,
+        default='',
+        help_text='Например, "300 гр."',
+    )
+
+    name_en = models.CharField(
+        max_length=256,
+        default='',
+        verbose_name='Название (англ.)',
+        help_text='Например, "Adjarian khachapuri"',
+    )
+    desc_en = models.TextField(
+        max_length=4096,
+        default='',
+        verbose_name='Описание (англ.)',
+        blank=True,
+        help_text='Например, "Khachapuri in the shape of a small boat with a Suluguni cheese"',
+    )
+    portion_en = models.CharField(
+        max_length=128,
+        verbose_name='Порция (англ.)',
+        default='',
+        help_text='Например, "300 gr."',
+    )
+
     price = models.IntegerField(default=0, verbose_name='Цена')
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
-    category = models.ForeignKey('shop.Category', default=None, blank=True, null=True,
-                                 verbose_name='Категория', )
-    sub_category = models.ForeignKey('shop.SubCategory', default=None, blank=True, null=True,
-                                     verbose_name='Подкатегория', )
+    category = models.ForeignKey(
+        'shop.Category',
+        default=None,
+        blank=True,
+        null=True,
+        verbose_name='Категория',
+        help_text='Укажите, на странице какой категории будет отображаться этот товар. '
+                  'Если этот товар принадлежит какой-нибудь подкатегори, это поле заполнять не нужно',
+    )
+    sub_category = models.ForeignKey(
+        'shop.SubCategory',
+        default=None,
+        blank=True,
+        null=True,
+        verbose_name='Подкатегория',
+        help_text='Укажите, в какой подкатегории должен отображаться этот товар. Это необязательное поле',
+    )
     image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='', blank=True)
+
+    @property
+    def name(self):
+        return getattr(self, 'name_{}'.format(get_language()))
+
+    @property
+    def desc(self):
+        return getattr(self, 'desc_{}'.format(get_language()))
+
+    @property
+    def portion(self):
+        return getattr(self, 'portion_{}'.format(get_language()))
 
     def get_thumb(self):
         if self.image is None:
@@ -125,8 +221,9 @@ class Vacancy(models.Model):
 
 
 class NewsItem(models.Model):
-    title = models.CharField(max_length=256, verbose_name='Заголовое')
+    title = models.CharField(max_length=256, verbose_name='Заголовок', default='')
     text = models.TextField(verbose_name='Текст', default='')
+
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
     image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='')
     date = models.DateField(verbose_name='Дата')
@@ -138,3 +235,21 @@ class NewsItem(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class TextBlock(models.Model):
+    name = models.CharField(max_length=256, verbose_name='Название', default='')
+    slug = models.SlugField(max_length=256, verbose_name='Идентификатор', default='')
+    value_ru = models.TextField(verbose_name='Текст (рус.)', default='')
+    value_en = models.TextField(verbose_name='Текст (англ.)', default='')
+
+    @property
+    def value(self):
+        return getattr(self, 'value_{}'.format(get_language()))
+
+    class Meta:
+        verbose_name = 'Текстовый блок'
+        verbose_name_plural = 'Текстовые блоки'
+
+    def __str__(self):
+        return self.name

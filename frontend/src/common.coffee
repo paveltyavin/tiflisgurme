@@ -3,6 +3,29 @@ _ = require 'underscore'
 backbone = require 'backbone'
 marionette = require 'backbone.marionette'
 
+navbarSerializeData = ->
+  lang = $('html').attr('lang')
+  result = {
+    lang: lang
+  }
+  if lang is 'ru'
+    result = _.defaults result,
+      lang_text: "RUS"
+      menu: 'Меню'
+      shipping: 'Доставка'
+      news: 'Новости'
+      contact: 'Контакты'
+      vacancy: 'Вакансии'
+  if lang is 'en'
+    result = _.defaults result,
+      lang_text: "EN"
+      menu: 'Menu'
+      shipping: 'Shipping'
+      news: 'News'
+      contact: 'Contact'
+      vacancy: 'Vacancies'
+  return result
+
 class NavbarSmallView extends marionette.ItemView
   className: 'navbar_small navbar'
   template: require './templates/navbar_small'
@@ -15,12 +38,13 @@ class NavbarSmallView extends marionette.ItemView
           return $('.container_welcome').outerHeight(true)
 
     lang = $('html').attr('lang')
-    @$("[data-lang=#{lang}]").removeClass 'hide'
   onClickExpand: (event) =>
     event.preventDefault()
     @$('.region_expand').collapse('toggle')
     @$('.expand').toggleClass 'glyphicon-menu-hamburger'
     @$('.expand').toggleClass 'glyphicon-remove'
+
+  serializeData: navbarSerializeData
 
 
 class RibbonView extends marionette.ItemView
@@ -41,6 +65,7 @@ class NavbarBigView extends marionette.LayoutView
     news: 'news'
     contact: 'contact'
     '': 'home'
+  serializeData: navbarSerializeData
   regions:
     region_ribbon: '.region_ribbon'
 
@@ -58,7 +83,7 @@ class NavbarBigView extends marionette.LayoutView
           link = @routing[key]
           @$("[data-link=#{link}]").addClass 'active'
 
-    if not _.contains(['', '/home/'], pathname) and $(window).width() > 1100
+    if not _.contains(['', '/ru/home/', '/en/home/'], pathname) and $(window).width() > 1100
       @region_ribbon.show(new RibbonView)
 
 

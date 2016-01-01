@@ -1,3 +1,4 @@
 *.pyc
+*.mo
 .DS_STORE
 fabfile.py

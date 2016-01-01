@@ -7,6 +7,16 @@ marionette = require 'backbone.marionette'
 class ProductModalView extends marionette.ItemView
   className: 'modal-dialog'
   template: require './templates/product_modal'
+  serializeData: =>
+    res = super
+    lang = $('html').attr 'lang'
+    currency = ''
+    if lang is 'ru'
+      currency = 'руб'
+    if lang is 'en'
+      currency = 'rub'
+    res.currency = currency
+    return res
 
 
 class ProductItemView extends marionette.ItemView

@@ -8,11 +8,23 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
-from shop.models import HomeImage, Category, Vacancy, Product, NewsItem
+from shop.models import HomeImage, Category, Vacancy, NewsItem
+from django.utils.translation import ugettext as _
 
 
 class StubView(TemplateView):
     template_name = 'stub.html'
+
+
+WEEKDAY_DICT = {
+    0: _('monday'),
+    1: _('tuesday'),
+    2: _('wednesday'),
+    3: _('thursday'),
+    4: _('friday'),
+    5: _('saturday'),
+    6: _('sunday'),
+}
 
 
 class HomeView(TemplateView):
@@ -22,18 +34,9 @@ class HomeView(TemplateView):
         ctx = super().get_context_data(**kwargs)
         ctx['home_image_list'] = HomeImage.objects.all()
         n = make_naive(now())
-        weekday_dict = {
-            0: 'понедельник',
-            1: 'вторник',
-            2: 'среда',
-            3: 'четверг',
-            4: 'пятница',
-            5: 'суббота',
-            6: 'воскресенье',
-        }
 
-        ctx['weekday'] = weekday_dict[n.weekday()]
-        ctx['open_text'] = 'Мы открыты !' if 12 <= n.hour < 22 else 'Мы закрыты.'
+        ctx['weekday'] = WEEKDAY_DICT[n.weekday()]
+        ctx['open_text'] = _('We are open') if 12 <= n.hour < 22 else _('We are closed')
         return ctx
 
 
@@ -86,15 +89,15 @@ class NewsDetailView(DetailView):
 
 
 class ContactForm(forms.Form):
-    name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Имя'}))
-    phone = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Телефон'}))
+    name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': _('Name')}))
+    phone = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': _('Phone')}))
     email = forms.EmailField(label='', max_length=100, widget=forms.EmailInput(attrs={'placeholder': 'email'}))
     text = forms.CharField(
         label='',
         max_length=100,
         widget=forms.Textarea(
             attrs={
-                'placeholder': 'Текст сообщения',
+                'placeholder': _('Message Text'),
                 'rows': '6',
             }
         ),
