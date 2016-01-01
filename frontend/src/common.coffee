@@ -13,6 +13,9 @@ class NavbarSmallView extends marionette.ItemView
       offset:
         top: ->
           return $('.container_welcome').outerHeight(true)
+
+    lang = $('html').attr('lang')
+    @$("[data-lang=#{lang}]").removeClass 'hide'
   onClickExpand: (event) =>
     event.preventDefault()
     @$('.region_expand').collapse('toggle')
@@ -20,7 +23,15 @@ class NavbarSmallView extends marionette.ItemView
     @$('.expand').toggleClass 'glyphicon-remove'
 
 
-class NavbarBigView extends marionette.ItemView
+class RibbonView extends marionette.ItemView
+  className: 'ribbon'
+  template: require './templates/ribbon'
+  onRender: =>
+    lang = $('html').attr('lang')
+    @$("[data-lang=#{lang}]").addClass('active').find('a').removeAttr('href')
+
+
+class NavbarBigView extends marionette.LayoutView
   className: 'navbar_big navbar'
   template: require './templates/navbar_big'
   routing:
@@ -30,6 +41,8 @@ class NavbarBigView extends marionette.ItemView
     news: 'news'
     contact: 'contact'
     '': 'home'
+  regions:
+    region_ribbon: '.region_ribbon'
 
   onRender: =>
     @$el.affix
@@ -37,12 +50,16 @@ class NavbarBigView extends marionette.ItemView
         top: ->
           return $('.container_welcome').outerHeight(true)
 
+    pathname = window.location.pathname
     for key in _.keys(@routing)
       do (key) =>
         r = new RegExp(key, 'i')
-        if r.test(window.location.pathname)
+        if r.test pathname
           link = @routing[key]
           @$("[data-link=#{link}]").addClass 'active'
+
+    if not _.contains(['', '/home/'], pathname) and $(window).width() > 1100
+      @region_ribbon.show(new RibbonView)
 
 
 class CommonView extends marionette.LayoutView

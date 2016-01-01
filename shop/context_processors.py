@@ -28,5 +28,6 @@ def base(request):
 
     result['weekday'] = WEEKDAY_DICT[n.weekday()]
     result['open_text'] = 'Мы открыты !' if 12 <= n.hour < 22 else 'Мы закрыты.'
+    result['LANGUAGE_CODE'] = settings.LANGUAGE_CODE
 
     return result

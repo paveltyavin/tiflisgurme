@@ -6,11 +6,11 @@
     <div class="ribbon hidden-xs hidden-sm">
         <div class="angle"></div>
         <ul class="lang_list list-unstyled list-inline">
-            <li class="active">
-                <a href="#">RUS</a>
+            <li {% if LANGUAGE_CODE == 'ru' %}class="active"{% endif %}>
+                <a {% if LANGUAGE_CODE != 'ru' %}href="http://tiflisgurme.com/"{% endif %}>RUS</a>
             </li>
-            <li>
-                <a href="#">EN</a>
+            <li {% if LANGUAGE_CODE == 'en' %}class="active"{% endif %}>
+                <a {% if LANGUAGE_CODE != 'en' %}href="http://en.tiflisgurme.com/"{% endif %}>EN</a>
             </li>
         </ul>
         <ul class="social_list list-unstyled list-inline">

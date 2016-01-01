@@ -1,11 +1,11 @@
 {% load static from staticfiles %}
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static "styles.css" %}"/>
-    <link href='https://fonts.googleapis.com/css?family=Kurale&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+{#    <link href='https://fonts.googleapis.com/css?family=Kurale&subset=latin,cyrillic' rel='stylesheet' type='text/css'>#}
     {#    <script src="{% static 'jquery.js' %}"></script>#}
     <script src="{% static 'vendor.js' %}"></script>
     <script src="{% static 'app.js' %}"></script>

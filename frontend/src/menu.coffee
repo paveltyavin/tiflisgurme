@@ -18,8 +18,6 @@ class ProductItemView extends marionette.ItemView
       url: "/api/product/#{id}/"
       success: (data) =>
         @trigger 'modal', data
-  initialize: =>
-    console.log 'init'
 
 
 class MenuView extends marionette.LayoutView
