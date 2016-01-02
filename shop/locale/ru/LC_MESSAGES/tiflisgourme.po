@@ -98,7 +98,7 @@ msgstr "Напишите нам, и мы вам обязательно отве�
 
 #: templates/contact.html:92
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/contact.html:97
 msgid "Sent!"
