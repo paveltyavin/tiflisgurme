@@ -9,7 +9,7 @@
         <div class="angle"></div>
         <ul class="lang_list list-unstyled list-inline">
             <li {% if LANGUAGE_CODE == 'ru' %}class="active"{% endif %}>
-                <a {% if LANGUAGE_CODE != 'ru' %}href="{% change_lang request 'ru' %}"{% endif %}>RUS</a>
+                <a {% if LANGUAGE_CODE != 'ru' %}href="{% change_lang request 'ru' %}"{% endif %}>РУС</a>
             </li>
             <li {% if LANGUAGE_CODE == 'en' %}class="active"{% endif %}>
                 <a {% if LANGUAGE_CODE != 'en' %}href="{% change_lang request 'en' %}"{% endif %}>EN</a>
@@ -17,17 +17,18 @@
         </ul>
         <ul class="social_list list-unstyled list-inline">
             <li>
-                <a href="https://www.instagram.com/tiflisgurme/" target="_blank">
-                    <i class="fa fa-facebook"></i>
-                </a>
-            </li>
-            <li>
                 <a href="http://vk.com/tiflisgurme" target="_blank">
                     <i class="fa fa-vk"></i>
+{#                    <span class="vk_icon"></span>#}
                 </a>
             </li>
             <li>
                 <a href="https://www.facebook.com/TiflisGurme/?pnref=lhc" target="_blank">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/tiflisgurme/" target="_blank">
                     <i class="fa fa-instagram"></i>
                 </a>
             </li>
@@ -40,8 +41,8 @@
             {% text_block 'title' %}
         </div>
         <div class="today">
-            <span class="glyphicon glyphicon-time"></span>
-            {{ now|date:"H:i" }} ― {% trans 'Today' %} {{ weekday }}. {{ open_text }}
+            <span class="glyphicon glyphicon-time time"></span>
+            {{ now|date:"H.i" }} ― {% trans 'Today is' %} {{ weekday }}. {{ open_text }}
         </div>
         <a href="#" class="arrow_bottom">
             <i class="fa fa-angle-double-down"></i>

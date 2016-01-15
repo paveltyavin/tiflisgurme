@@ -8,23 +8,13 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
+from shop.context_processors import get_week_day, get_open_text
 from shop.models import HomeImage, Category, Vacancy, NewsItem
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 
 class StubView(TemplateView):
     template_name = 'stub.html'
-
-
-WEEKDAY_DICT = {
-    0: _('monday'),
-    1: _('tuesday'),
-    2: _('wednesday'),
-    3: _('thursday'),
-    4: _('friday'),
-    5: _('saturday'),
-    6: _('sunday'),
-}
 
 
 class HomeView(TemplateView):
@@ -35,8 +25,8 @@ class HomeView(TemplateView):
         ctx['home_image_list'] = HomeImage.objects.all()
         n = make_naive(now())
 
-        ctx['weekday'] = WEEKDAY_DICT[n.weekday()]
-        ctx['open_text'] = _('We are open') if 12 <= n.hour < 22 else _('We are closed')
+        ctx['weekday'] = get_week_day(n.weekday())
+        ctx['open_text'] = get_open_text(n.hour)
         return ctx
 
 

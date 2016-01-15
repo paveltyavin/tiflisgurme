@@ -10,7 +10,7 @@ navbarSerializeData = ->
   }
   if lang is 'ru'
     result = _.defaults result,
-      lang_text: "RUS"
+      lang_text: "РУС"
       menu: 'Меню'
       shipping: 'Доставка'
       news: 'Новости'

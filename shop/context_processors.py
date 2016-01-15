@@ -1,19 +1,29 @@
-from urllib.parse import urlsplit, urljoin
 from django.conf import settings
 from django.utils.timezone import now, make_naive
 from django.utils.translation import get_language
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from shop.models import Phone
 
-WEEKDAY_DICT = {
-    0: _('monday'),
-    1: _('tuesday'),
-    2: _('wednesday'),
-    3: _('thursday'),
-    4: _('friday'),
-    5: _('saturday'),
-    6: _('sunday'),
-}
+
+def get_week_day(i):
+    if i == 0:
+        return _('monday')
+    if i == 1:
+        return _('tuesday')
+    if i == 2:
+        return _('wednesday')
+    if i == 3:
+        return _('thursday')
+    if i == 4:
+        return _('friday')
+    if i == 5:
+        return _('saturday')
+    if i == 6:
+        return _('sunday')
+
+
+def get_open_text(hour):
+    return _('We are open') if 12 <= hour < 22 else _('We are closed')
 
 
 def get_phone_list():
@@ -29,7 +39,7 @@ def base(request):
 
     n = make_naive(now())
 
-    result['weekday'] = WEEKDAY_DICT[n.weekday()]
-    result['open_text'] = _('We are open') if 12 <= n.hour < 22 else _('We are closed')
+    result['weekday'] = get_week_day(n.weekday())
+    result['open_text'] = get_open_text(n.hour)
     result['LANGUAGE_CODE'] = get_language()
     return result
