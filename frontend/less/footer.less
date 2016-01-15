@@ -6,7 +6,7 @@ footer {
   width: 100%;
   min-height: 293px;
   padding-top: 23px;
-  padding-bottom: 23px;
+  padding-bottom: 27px;
   @media (max-width: @screen-xs-max) {
     padding-top: 10px;
   }
@@ -15,7 +15,6 @@ footer {
     border: 5px solid @brand-primary;
     .panel-body {
       display: block;
-      padding: 25px 10px;
       background: @brand-primary;
       border: 1px solid @bord;
       text-align: center;
@@ -34,8 +33,13 @@ footer {
         margin-bottom: 10px;
       }
       .panel-body {
-        padding: 15px;
+        .container_social_list {
+          line-height: 60px;
+          height: 60px;
+          vertical-align: middle;
+        }
         .social_list {
+          line-height:normal;
           display: inline-block;
           margin: 0;
           li {
@@ -43,7 +47,7 @@ footer {
             a {
               font-size: 20px;
               padding: 5px;
-              height: 40px;
+              //height: 40px;
               width: 40px;
               border-radius: 20px;
               border: 1px solid @bord;
@@ -61,9 +65,14 @@ footer {
       }
     }
     &.vacancy {
-      margin-bottom: 43px;
+      margin-bottom: 74px;
       @media (max-width: @screen-xs-max) {
         margin-bottom: 10px;
+      }
+      .heading {
+        height: 60px;
+        line-height: 60px;
+        vertical-align: middle;
       }
     }
     &.production {
