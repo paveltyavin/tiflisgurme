@@ -4,6 +4,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  color: @bord2;
   min-height: 293px;
   padding-top: 23px;
   padding-bottom: 27px;
@@ -39,25 +40,29 @@ footer {
           vertical-align: middle;
         }
         .social_list {
-          line-height:normal;
+          line-height: normal;
           display: inline-block;
           margin: 0;
           li {
             text-align: center;
+            height: 38px;
+            width: 38px;
+            margin-left: 4px;
+            &:first-child {
+              margin-left: 0px;
+            }
+            border-radius: 19px;
+            background-color: @bord2;
+            &:hover {
+              border-color: #fff;
+              background-color: #fff;
+            }
+            border: 1px solid @bord2;
             a {
               font-size: 20px;
-              padding: 5px;
-              //height: 40px;
-              width: 40px;
-              border-radius: 20px;
-              border: 1px solid @bord;
               display: inline-block;
-              vertical-align: baseline;
-              color: @bord;
-              &:hover {
-                color: #fff;
-                border-color: #fff;
-              }
+              margin-top: 7px;
+              color: @pink;
               text-decoration: none;
             }
           }
@@ -88,7 +93,7 @@ footer {
         }
       }
       .panel-body {
-        height: 216px;
+        height: 206px;
         @media (max-width: @screen-xs-max) {
           height: inherit;
         }
@@ -111,6 +116,14 @@ footer {
       }
     }
     &.friends {
+      .heading {
+        height: 60px;
+        line-height: 60px;
+        vertical-align: middle;
+        @media (max-width: @screen-xs-max) {
+          margin-bottom: 0;
+        }
+      }
       .image {
         margin-top: 40px;
         @media (max-width: @screen-xs-max) {
@@ -123,7 +136,7 @@ footer {
         background-size: contain;
       }
       .panel-body {
-        height: 216px;
+        height: 206px;
         @media (max-width: @screen-xs-max) {
           height: inherit;
         }
@@ -143,9 +156,9 @@ footer {
     border-top: 1px solid @bord;
     line-height: 27px;
     a {
-      color: #94373A;
+      color: @pink2;
       &:hover {
-        color: #6d2226;
+        color: @bord2;
       }
     }
     width: 100%;
