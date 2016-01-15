@@ -26,7 +26,12 @@ class Category(models.Model):
         help_text='Например, "Tea and coffee"',
     )
 
-    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение')
+    image = models.ImageField(
+        upload_to=convert_file_name,
+        verbose_name='Изображение',
+        default='',
+        blank=True,
+    )
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
     kind = models.CharField(
         max_length=10,

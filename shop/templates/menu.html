@@ -9,11 +9,17 @@
                 {% for c in category_list %}
                     <div class="col-md-3">
                         <a class="category_item" href="{% url 'category' c.id %}">
-                            <div class="container_image">
-                                {% thumbnail c.image "231x153" crop="center" as im %}
-                                    <img src="{{ im.url }}">
-                                {% endthumbnail %}
-                            </div>
+                            {% if c.image %}
+                                <div class="container_image">
+                                    {% thumbnail c.image "231x153" crop="center" as im %}
+                                        <img src="{{ im.url }}">
+                                    {% endthumbnail %}
+                                </div>
+                            {% else %}
+                                <div class="container_empty_image">
+                                    <img src="{% static 'img/logo/90_pink.png' %}" alt="">
+                                </div>
+                            {% endif %}
                             <div class="container_name">
                                 <div class="name">{{ c.name }}</div>
                             </div>
