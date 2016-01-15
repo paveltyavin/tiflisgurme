@@ -10,7 +10,7 @@ from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
 from shop.context_processors import get_week_day, get_open_text
 from shop.models import HomeImage, Category, Vacancy, NewsItem
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 
 
 class StubView(TemplateView):

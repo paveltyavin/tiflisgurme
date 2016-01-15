@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.utils.timezone import now, make_naive
 from django.utils.translation import get_language
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 from shop.models import Phone
 
 

@@ -88,6 +88,7 @@ footer {
         height: 60px;
         line-height: 60px;
         vertical-align: middle;
+        overflow: hidden;
         @media (max-width: @screen-xs-max) {
           margin-bottom: 0;
         }
@@ -102,8 +103,8 @@ footer {
         margin-left: auto;
         margin-right: auto;
         height: 121px;
-        @media (max-width: @screen-sm-max) {
-          height: 40px;
+        @media (max-width: @screen-xs-max) {
+          height: 60px;
         }
         opacity: 0.75;
         background: url('/static/img/anabella.jpg') center no-repeat;
@@ -116,6 +117,10 @@ footer {
       }
     }
     &.friends {
+      margin-bottom: 0px;
+      @media (max-width: @screen-xs-max) {
+        margin-bottom: 10px;
+      }
       .heading {
         height: 60px;
         line-height: 60px;
@@ -124,16 +129,21 @@ footer {
           margin-bottom: 0;
         }
       }
-      .image {
+      .container_image {
         margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
         @media (max-width: @screen-xs-max) {
           margin-top: 0px;
         }
-        margin-left: auto;
-        margin-right: auto;
-        height: 30px;
-        background: url('/static/img/salvador_bord.png') center no-repeat;
-        background-size: contain;
+        .image {
+          height: 60px;
+          background: url('/static/img/salvador_bord.png') center no-repeat;
+          background-size: contain;
+          img {
+            max-height: 40px;
+          }
+        }
       }
       .panel-body {
         height: 206px;
@@ -144,6 +154,7 @@ footer {
       &:hover {
         .image {
           background: url('/static/img/salvador_white.png') center no-repeat;
+          background-size: contain;
         }
       }
     }
