@@ -86,7 +86,14 @@ footer {
         @media (max-width: @screen-sm-max) {
           height: 40px;
         }
+        opacity: 0.75;
         background: url('/static/img/anabella.jpg') center no-repeat;
+      }
+
+      &:hover {
+        .image {
+          opacity: 1;
+        }
       }
     }
     &.friends {
@@ -122,9 +129,9 @@ footer {
     border-top: 1px solid @bord;
     line-height: 30px;
     a {
-      color: #000;
+      color: #94373A;
       &:hover {
-        color: @bord;
+        color: #6d2226;
       }
     }
     width: 100%;
