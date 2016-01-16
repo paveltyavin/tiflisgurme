@@ -8,6 +8,7 @@ router =
   'home/': require './home'
   'shipping/': require './shipping'
   'menu/': require './menu'
+  'news/': require './news'
   '': require './common'
 
 

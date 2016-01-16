@@ -2,31 +2,39 @@
 {% load static from staticfiles %}
 {% block body_class %}body_news{% endblock %}
 {% load thumbnail %}
+{% load shop_tags %}
 {% block content %}
     {% block newsitem %}{% endblock %}
     <div class="container">
         <div class="news_list">
-            <div class="row">
-                {% for n in newsitem_list %}
-                    <div class="col-md-4">
-                        <a class="newsitem" href="{% url 'news-detail' n.id %}">
-                            <div class="container_date">
-                                <div class="date">{{ n.date|date:'d.m.Y' }}</div>
+            {% for n in newsitem_list %}
+                <a class="container_newsitem" href="{% url 'news-detail' n.id %}" data-counter="{{ forloop.counter }}"
+                   data-date="{{ n.date|date:'d.m.y' }}"
+                   data-title="{{ n.title }}"
+                   data-text="{{ n.text }}"
+                   data-thumbnail="{% thumbnail n.image "600" as im %}{{ im.url }}{% endthumbnail %}"
+                        >
+                    <div class="newsitem">
+                        <div class="container_date">
+                            <div class="date">{{ n.date|date:'d.m.Y' }}</div>
+                        </div>
+                        <div class="container_title">
+                            <div class="title">
+                                {{ n.title }}
                             </div>
-                            <div class="container_title">
-                                <div class="title">
-                                    {{ n.title }}
-                                </div>
-                            </div>
-                            <div class="container_image">
-                                {% thumbnail n.image "312x200" crop="center" as im %}
-                                    <img src="{{ im.url }}">
-                                {% endthumbnail %}
-                            </div>
-                        </a>
+                        </div>
+                        <div class="container_image">
+                            {% thumbnail n.image "312x200" crop="center" as im %}
+                                <img src="{{ im.url }}">
+                            {% endthumbnail %}
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
+                </a>
+                {% if forloop.counter|news_end_row or forloop.last %}
+                    <div class="region_middle" data-counter="{{ forloop.counter }}"></div>
+                {% else %}
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

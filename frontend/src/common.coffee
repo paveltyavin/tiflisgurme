@@ -11,6 +11,8 @@ navbarSerializeData = ->
   if lang is 'ru'
     result = _.defaults result,
       lang_text: "РУС"
+      other_lang: 'en'
+      other_lang_text: 'EN'
       menu: 'Меню'
       shipping: 'Доставка'
       news: 'Новости'
@@ -19,11 +21,14 @@ navbarSerializeData = ->
   if lang is 'en'
     result = _.defaults result,
       lang_text: "EN"
+      other_lang: 'ru'
+      other_lang_text: 'РУС'
       menu: 'Menu'
       shipping: 'Shipping'
       news: 'News'
       contact: 'Contact'
       vacancy: 'Vacancies'
+      other_lang: 'ru'
   return result
 
 class NavbarSmallView extends marionette.ItemView

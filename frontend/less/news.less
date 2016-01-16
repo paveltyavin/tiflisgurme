@@ -1,6 +1,17 @@
 .body_news {
   .news_list {
+    .make-row();
+    .container_newsitem {
+      .make-md-column(4);
+    }
+    .region_middle {
+      .make-md-column(12);
+    }
     .newsitem {
+
+      &.active {
+        width: 100%;
+      }
       color: #000;
       outline: 1px solid @pink;
       display: block;
@@ -55,13 +66,13 @@
       color: @pink;
       border-bottom: 2px solid @pink;
       .date {
-        font-size:18px;
+        font-size: 18px;
       }
       .title {
         text-transform: uppercase;
       }
     }
-    .desc{
+    .desc {
       letter-spacing: 0.8px;
     }
 
