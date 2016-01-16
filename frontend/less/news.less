@@ -4,7 +4,7 @@
     .container_newsitem {
       .make-md-column(4);
     }
-    .region_middle {
+    .middle_view {
       .make-md-column(12);
     }
     .newsitem {
@@ -74,6 +74,21 @@
     }
     .desc {
       letter-spacing: 0.8px;
+    }
+    .container_desc {
+      display: table;
+      width: 100%;
+      .desc {
+        display: table-cell;
+      }
+      .close {
+        width: 30%;
+        text-align: right;
+        display: table-cell;
+        img {
+          cursor: pointer;
+        }
+      }
     }
 
     .container_image {

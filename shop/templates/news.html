@@ -8,7 +8,7 @@
     <div class="container">
         <div class="news_list">
             {% for n in newsitem_list %}
-                <a class="container_newsitem" href="{% url 'news-detail' n.id %}" data-counter="{{ forloop.counter }}"
+                <a class="container_newsitem" href="{% url 'news-detail' n.id %}"
                    data-date="{{ n.date|date:'d.m.y' }}"
                    data-title="{{ n.title }}"
                    data-text="{{ n.text }}"
@@ -30,10 +30,6 @@
                         </div>
                     </div>
                 </a>
-                {% if forloop.counter|news_end_row or forloop.last %}
-                    <div class="region_middle" data-counter="{{ forloop.counter }}"></div>
-                {% else %}
-                {% endif %}
             {% endfor %}
         </div>
     </div>

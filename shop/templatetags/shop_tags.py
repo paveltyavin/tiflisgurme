@@ -35,8 +35,3 @@ def change_lang(request, lang):
     url_list = url_list[1:]
     url = '/'.join(url_list)
     return urljoin('/{}/'.format(lang), url)
-
-
-@register.filter
-def news_end_row(value):
-    return value % 3 == 0
