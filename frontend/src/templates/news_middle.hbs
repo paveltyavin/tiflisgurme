@@ -23,10 +23,25 @@
                     <img src="/static/svg/close_black.svg" alt="">
                 </div>
             </div>
+            {{# if image_list}}
+                <div class="container_carousel">
+                    <div id="newsimage_carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {{#each image_list}}
+                                <li data-target="#newsimage_carousel" data-slide-to="{{@index}}" class="{{#unless @index}}active{{/unless}}"></li>
+                            {{/each}}
+                        </ol>
 
-            <div class="container_image">
-                <img src="{{ thumbnail }}">
-            </div>
+                        <div class="carousel-inner" role="listbox">
+                            {{#each image_list}}
+                                <div class="item {{#unless @index}}active{{/unless}}">
+                                    <img src="{{.}}" alt="">
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
         </div>
 
     </div>

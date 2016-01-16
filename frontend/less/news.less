@@ -99,4 +99,35 @@
       }
     }
   }
+
+  .middle_view {
+    .container_carousel {
+      text-align: center;
+    }
+    #newsimage_carousel {
+      width: 600px;
+      margin-bottom: 60px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .carousel-indicators {
+      bottom: -50px;
+      li {
+        margin-left: 10px;
+        &:first-child {
+          margin-left: 0;
+        }
+
+        height: 7px;
+        width: 7px;
+        border-color: #000;
+        &.active {
+          height: 8px;
+          width: 8px;
+          border-color: @bord;
+          background-color: @bord;
+        }
+      }
+    }
+  }
 }

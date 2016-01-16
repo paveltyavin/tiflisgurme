@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.contrib.admin import site
-from django.contrib.admin.options import ModelAdmin
+from django.contrib.admin.options import ModelAdmin, InlineModelAdmin, TabularInline
 from django.contrib.auth.models import Group, User
 from shop import models
 
@@ -20,9 +20,15 @@ class PhoneAdmin(ModelAdmin):
     list_editable = ('ordering',)
 
 
+class NewsImageInline(TabularInline):
+    model = models.NewsImage
+    extra = 0
+
+
 class NewsAdmin(ModelAdmin):
     list_display = ('title', 'ordering')
     list_editable = ('ordering',)
+    inlines = [NewsImageInline,]
 
 
 class TextBlockAdmin(ModelAdmin):

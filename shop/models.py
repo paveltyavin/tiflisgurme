@@ -242,6 +242,20 @@ class NewsItem(models.Model):
         return self.title
 
 
+class NewsImage(models.Model):
+    newsitem = models.ForeignKey('NewsItem')
+    ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
+    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='')
+
+    class Meta:
+        verbose_name = 'Изображение новости'
+        verbose_name_plural = 'Изображения новостей'
+        ordering = ('ordering',)
+
+    def __str__(self):
+        return str(self.ordering)
+
+
 class TextBlock(models.Model):
     name = models.CharField(max_length=256, verbose_name='Название', default='')
     slug = models.SlugField(max_length=256, verbose_name='Идентификатор', default='')

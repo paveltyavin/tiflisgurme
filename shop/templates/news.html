@@ -13,6 +13,7 @@
                    data-title="{{ n.title }}"
                    data-text="{{ n.text }}"
                    data-thumbnail="{% thumbnail n.image "600" as im %}{{ im.url }}{% endthumbnail %}"
+                   data-image_list="{% for newsimage in n.newsimage_set.all %}{% thumbnail newsimage.image "600x400" crop='center' upscale=True as newsim %}{{ newsim.url }}{% endthumbnail %},{% endfor %}"
                         >
                     <div class="newsitem">
                         <div class="container_date">

@@ -17,9 +17,9 @@ class MiddleView extends marionette.ItemView
   events:
     'click .close>img': 'onClickClose'
   onClickClose: (event)=>
-    @$el.slideUp
-      success: =>
-        console.log 'slideUp success'
+    @$el.slideUp()
+  onRender: =>
+    @$('.carousel').carousel()
 
 
 class LayoutView extends marionette.LayoutView
@@ -29,10 +29,14 @@ class LayoutView extends marionette.LayoutView
       view = new NewsItemView({el: el})
       @listenTo view, 'click', (view) =>
         @$('.middle_view').slideUp()
+        image_list_str = view.$el.data 'image_list'
+        image_list = image_list_str.split(',')
+        image_list = _.filter(image_list, (x) -> x)
         model = new backbone.Model
           title: view.$el.data 'title'
           date: view.$el.data 'date'
           thumbnail: view.$el.data 'thumbnail'
+          image_list: image_list
           text: view.$el.data 'text'
         middle_view = new MiddleView({model: model})
         middle_view.render()
