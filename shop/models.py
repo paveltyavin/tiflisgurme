@@ -278,7 +278,7 @@ class Cart(models.Model):
     created = models.DateField(auto_now_add=True)
 
     def total_price(self):
-        return sum(cp.product.price for cp in self.cartproduct_set.all())
+        return sum(cp.product.price * cp.quantity for cp in self.cartproduct_set.all())
 
     def total_quantity(self):
         return sum(cp.quantity for cp in self.cartproduct_set.all())

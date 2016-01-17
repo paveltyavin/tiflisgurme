@@ -58,16 +58,20 @@
           }
         }
         .container_name {
-          padding: 10px;
-          display: block;
+          height: 50px;
+          overflow: hidden;
+          padding: 5px 10px;
           text-transform: uppercase;
           border-bottom: 1px solid @pink;
           .name {
+            display: inline-block;
+            vertical-align: top;
             color: #000;
           }
         }
         .container_price {
           padding: 10px;
+          letter-spacing: 0.8px;
         }
         .price {
           display: inline-block;
@@ -76,6 +80,7 @@
         .container_buy {
           display: inline-block;
           float: right;
+          box-sizing: border-box;
           .remove, .add {
             display: inline-block;
             color: @pink;
@@ -93,7 +98,7 @@
             &:before {
               content: '—';
 
-              left: 2px;
+              left: 1.5px;
               top: -2px;
             }
           }
@@ -120,6 +125,36 @@
           border-bottom: 1px solid @bord;
           .container_name {
             border-bottom: 1px solid @bord;
+            .name {
+              color: @bord;
+            }
+          }
+          .price {
+            color: @bord;
+          }
+          .container_buy {
+            .remove, .add {
+              border: 2px solid @bord;
+              &:before {
+                color: @bord;
+                font-weight: bold;
+              }
+            }
+            .remove {
+              &:before {
+                left: 0.5px;
+                top: -3px;
+              }
+            }
+            .add {
+              &:before {
+                left: 2.5px;
+                top: -7px;
+              }
+            }
+            .quantity {
+              color: @bord;
+            }
           }
         }
       }
