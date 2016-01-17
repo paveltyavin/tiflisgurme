@@ -17,5 +17,4 @@ window.addEventListener 'load', ->
     do (key) ->
       r = new RegExp(key, 'i')
       if r.test(window.location.pathname)
-        f = router[key]
-        f()
+        router[key]()

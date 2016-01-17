@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from shop.models import Product
+from shop.models import Product, Cart, CartProduct
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -13,4 +13,27 @@ class ProductSerializer(serializers.ModelSerializer):
             'desc',
             'price',
             'thumb',
+        )
+
+
+class CartProductSerializer(serializers.ModelSerializer):
+    product = ProductSerializer(read_only=True)
+
+    class Meta:
+        model = CartProduct
+        fields = (
+            'quantity',
+            'product',
+        )
+
+
+class CartSeriazlier(serializers.ModelSerializer):
+    cartproduct_set = CartProductSerializer(read_only=True, many=True)
+
+    class Meta:
+        model = Cart
+        fields = (
+            'total_price',
+            'total_quantity',
+            'cartproduct_set',
         )

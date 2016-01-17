@@ -2,11 +2,64 @@ $ = require 'jquery'
 _ = require 'underscore'
 backbone = require 'backbone'
 marionette = require 'backbone.marionette'
+bus = require './bus'
 
 
-class ProductModalView extends marionette.ItemView
+class ProductItemView extends marionette.ItemView
+  events:
+    'click img': 'onClickImg'
+    'click .remove': 'onClickRemove'
+    'click .add': 'onClickAdd'
+  onClickImg: =>
+    id = @$el.data 'id'
+    @trigger 'modal',
+      id: @$el.data 'id'
+      name: @$el.data 'name'
+      desc: @$el.data 'desc'
+      price: @$el.data 'price'
+      thumb: @$el.data 'thumb'
+      quantity: @$('.quantity').text()
+  onClickAdd: =>
+    id = @$el.data 'id'
+    $.ajax
+      url: '/api/cart/'
+      method: 'post'
+      dataType: 'json'
+      contentType: 'application/json'
+      data: JSON.stringify
+        product: id
+      success: (data)=>
+        bus.vent.trigger 'product:add',
+          product: id
+          quantity: data.quantity || 0
+  onClickRemove: =>
+    id = @$el.data 'id'
+    $.ajax
+      url: '/api/cart/'
+      method: 'delete'
+      dataType: 'json'
+      contentType: 'application/json'
+      data: JSON.stringify
+        product: id
+      success: (data) =>
+        bus.vent.trigger 'product:remove',
+          product: id
+          quantity: data.quantity || 0
+
+  initialize: =>
+    id = @$el.data 'id'
+    @listenTo bus.vent, 'product:remove product:add', (data) =>
+      if id is data.product
+        @$('.quantity').text(data.quantity)
+
+
+
+class ProductModalView extends ProductItemView
   className: 'modal-dialog'
   template: require './templates/product_modal'
+  events:
+    'click .remove': 'onClickRemove'
+    'click .add': 'onClickAdd'
   serializeData: =>
     res = super
     lang = $('html').attr 'lang'
@@ -17,18 +70,12 @@ class ProductModalView extends marionette.ItemView
       currency = 'rub'
     res.currency = currency
     return res
+  initialize: =>
+    @listenTo bus.vent, 'product:remove product:add', (data) =>
+      if @model.id is data.product
+        @$('.quantity').text(data.quantity)
+    @$el.data 'id', @model.id
 
-
-class ProductItemView extends marionette.ItemView
-  events:
-    'click': 'onClick'
-  onClick: =>
-    id = @$el.data 'id'
-    @trigger 'modal',
-      name: @$el.data 'name'
-      desc: @$el.data 'desc'
-      price: @$el.data 'price'
-      thumb: @$el.data 'thumb'
 
 
 class MenuView extends marionette.LayoutView

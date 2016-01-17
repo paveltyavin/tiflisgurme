@@ -272,3 +272,22 @@ class TextBlock(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Cart(models.Model):
+    created = models.DateField(auto_now_add=True)
+
+    def total_price(self):
+        return sum(cp.product.price for cp in self.cartproduct_set.all())
+
+    def total_quantity(self):
+        return sum(cp.quantity for cp in self.cartproduct_set.all())
+
+
+class CartProduct(models.Model):
+    product = models.ForeignKey('Product')
+    cart = models.ForeignKey('Cart')
+    quantity = models.IntegerField(default=0)
+
+    class Meta:
+        unique_together = ('product', 'cart',)

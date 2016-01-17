@@ -2,6 +2,32 @@ $ = require 'jquery'
 _ = require 'underscore'
 backbone = require 'backbone'
 marionette = require 'backbone.marionette'
+bus = require './bus'
+
+
+class Cart extends backbone.Model
+  url: '/api/cart/'
+
+
+class CartView extends marionette.ItemView
+  className: 'cart_view'
+  template: require './templates/cart'
+  events:
+    'click .order': 'onClickOrder'
+  onClickOrder: =>
+    null
+  onRender: =>
+    cart_popover_template = require './templates/cart_popover'
+    cart_popover_html= cart_popover_template()
+    @$('.container_order').popover
+      placement: 'top'
+      html: true
+      template: cart_popover_html
+      content: 'К сожалению, онлайн доставка временно не доступна. Вы можете оформить заказ по телефону!'
+      delay:
+        show: 0
+        hide: 1000
+
 
 navbarSerializeData = ->
   lang = $('html').attr('lang')
@@ -30,6 +56,7 @@ navbarSerializeData = ->
       vacancy: 'Vacancies'
       other_lang: 'ru'
   return result
+
 
 class NavbarSmallView extends marionette.ItemView
   className: 'navbar_small navbar'
@@ -102,6 +129,7 @@ class CommonView extends marionette.LayoutView
   el: 'body'
   regions:
     region_navbar: '.region_navbar'
+    region_cart: '.region_cart'
 
   onResize: =>
     width = $(window).width()
@@ -127,6 +155,19 @@ class CommonView extends marionette.LayoutView
     @listenTo @model, 'change:mode', @onChangeMode
     $(window).on 'resize', @onResize
     @onResize()
+
+    cart = new Cart
+    @listenTo cart, 'sync', =>
+      total_quantity =  cart.get 'total_quantity'
+      if total_quantity
+        cart_view = new CartView({model: cart})
+        @region_cart.show(cart_view)
+      else
+        @region_cart.empty()
+    cart.fetch()
+
+    @listenTo bus.vent, 'product:add product:remove', =>
+      cart.fetch()
 
 module.exports = ->
   new CommonView({model: new backbone.Model()})

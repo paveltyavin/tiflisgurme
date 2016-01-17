@@ -2,6 +2,7 @@
 {% load static from staticfiles %}
 {% block body_class %}body_category{% endblock %}
 {% load thumbnail %}
+{% load shop_tags %}
 {% load i18n %}
 {% block content %}
     <div class="container">
@@ -29,7 +30,7 @@
                                     >
                                 {% if product.image %}
                                     <div class="container_image">
-                                        {% thumbnail product.image "225x150" upscale=True crop='center' as im %}
+                                        {% thumbnail product.image "231x150" upscale=True crop='center' as im %}
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     </div>
@@ -41,7 +42,11 @@
                                 </div>
                                 <div class="container_price">
                                     <div class="price">{{ product.price }} {% trans 'rub' %}</div>
-                                    <div class="container_buy"></div>
+                                    <div class="container_buy">
+                                        <div class="remove"></div>
+                                        <div class="quantity">{% get_cart_quantity request product %}</div>
+                                        <div class="add"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

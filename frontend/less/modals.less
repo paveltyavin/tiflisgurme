@@ -39,7 +39,7 @@
     margin-right: -4px; /* Adjusts for spacing */
   }
 
-  .close{
+  .close {
     outline: none;
   }
 }
@@ -90,7 +90,7 @@
 
 .modal-body {
   position: relative;
-  padding: 15px;
+  padding: 30px 20px;
 }
 
 // Measure scrollbar width for padding body during modal show/hide
@@ -109,5 +109,50 @@
   }
   @media (min-width: @screen-md-min) {
     width: 900px;
+  }
+}
+
+.modal {
+
+  .container_buy {
+    display: inline-block;
+    float: right;
+    .remove, .add {
+      display: inline-block;
+      color: #fff;
+      border: 1px solid #fff;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      position: relative;
+      &:before {
+        position: absolute;
+        cursor: pointer;
+      }
+    }
+    .remove {
+      &:before {
+        content: '—';
+
+        left: 2px;
+        top: -2px;
+      }
+    }
+    .add {
+      &:before {
+        content: '+';
+        left: 3.5px;
+        top: -6px;
+        font-size: 20px;
+      }
+    }
+    .quantity {
+      display: inline-block;
+      position: relative;
+      height: 20px;
+      width: 20px;
+      vertical-align: top;
+      text-align: center;
+    }
   }
 }
