@@ -43,11 +43,11 @@
             </div>
         </div>
         <div class="today">
-            <span class="glyphicon glyphicon-time time"></span>
+            <img class="time" src="{% static 'svg/time.svg' %}" alt="">
             {{ now|date:"H.i" }} ― {% trans 'Today' %} {{ weekday }}. {{ open_text }}
         </div>
         <a href="#" class="arrow_bottom">
-            <i class="fa fa-angle-double-down"></i>
+            <img src="{% static 'svg/double_down.svg' %}" alt="">
         </a>
     </div>
 {% endblock %}
