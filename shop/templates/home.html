@@ -52,11 +52,13 @@
     </div>
 {% endblock %}
 {% block content %}
-    <div class="container welcome_text">
-        {% text_block 'welcome_text' %}
-    </div>
-    <div class="container_khink">
-        <img src="{% static 'img/khink.png' %}" alt="">
+    <div class="bg_hex">
+        <div class="container welcome_text">
+            {% text_block 'welcome_text' %}
+        </div>
+        <div class="container_khink">
+            <img src="{% static 'img/khink.png' %}" alt="">
+        </div>
     </div>
     <div class="container_slider">
         <div class="slider">

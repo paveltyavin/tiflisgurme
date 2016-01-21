@@ -58,7 +58,7 @@ class HomeView extends marionette.ItemView
     $(window).mousewheel @mousewheel
     n = $('.navbar').innerHeight()
     height = $(window).height()
-    @resizeSlider(height - n)
+#    @resizeSlider(height - n)
 
     $('.arrow_bottom').on 'click', (event)=>
       event.preventDefault()

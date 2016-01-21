@@ -60,8 +60,8 @@ footer {
             a {
               font-size: 20px;
               display: inline-block;
-              margin-top: 7px;
               color: @pink;
+              line-height: 38px;
               text-decoration: none;
             }
           }
@@ -90,6 +90,7 @@ footer {
         overflow: hidden;
         @media (max-width: @screen-xs-max) {
           margin-bottom: 0;
+          font-size: 18px;
         }
       }
       .panel-body {
@@ -126,20 +127,22 @@ footer {
         vertical-align: middle;
         @media (max-width: @screen-xs-max) {
           margin-bottom: 0;
+          font-size: 18px;
         }
       }
       .container_image {
         margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
-        padding-left:10px;
-        padding-right:10px;
+        padding-left: 10px;
+        padding-right: 10px;
         @media (max-width: @screen-xs-max) {
           margin-top: 0px;
         }
         .image {
           height: 60px;
           background: url('/static/img/salvador_bord.png') center no-repeat;
+          background-size: contain;
           img {
             max-height: 40px;
           }

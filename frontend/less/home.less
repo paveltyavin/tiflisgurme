@@ -1,6 +1,11 @@
 @ribbon_height: 50px;
 .body_home {
-  background: #fdf6ec url('/static/svg/hex_violet.svg');
+  .content{
+    padding-top: 0;
+  }
+  .bg_hex{
+    background: #fdf6ec url('/static/svg/hex_violet.svg');
+  }
   .ribbon {
     transition: .4s ease-out;
     .angle {
@@ -58,12 +63,6 @@
             vertical-align: baseline;
             color: #fff;
             text-decoration: none;
-            //.vk_icon {
-            //  width: 30px;
-            //  height: 30px;
-            //  display: inline;
-            //  background-image: url('/static/svg/vk.svg');
-            //}
           }
         }
       }
@@ -105,12 +104,12 @@
       background: url('/static/img/home.jpg') no-repeat center center;
       background-size: cover;
     }
-    .title{
+    .title {
       margin-top: 29px;
     }
     .container_logo {
       .image {
-        background: url('/static/img/logo/315_white.png') no-repeat center center;
+        background: url('/static/img/logo/white.svg') no-repeat center center;
         height: 189px;
         @media (max-width: @screen-xs-max) {
           background: url('/static/img/khink.png') no-repeat center center;
@@ -169,6 +168,7 @@
   }
 
   .welcome_text {
+    padding-top: 35px;
     p {
       margin-bottom: 25px;
     }
@@ -180,7 +180,7 @@
   }
   .container_khink {
     text-align: center;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 
   .container_slider {
