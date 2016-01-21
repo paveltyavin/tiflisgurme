@@ -24,10 +24,6 @@ class CartView extends marionette.ItemView
       html: true
       template: cart_popover_html
       content: 'К сожалению, онлайн доставка временно не доступна. Вы можете оформить заказ по телефону!'
-      delay:
-        show: 0
-        hide: 1000
-
 
 navbarSerializeData = ->
   lang = $('html').attr('lang')
