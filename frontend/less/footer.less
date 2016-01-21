@@ -206,9 +206,16 @@ footer {
         .total_price, .total_quantity {
           color: #000;
         }
+
+        @media (max-width: @screen-xs-max) {
+          font-size: 12px;
+        }
       }
       .column_order {
         width: 25%;
+        @media (max-width: @screen-xs-min) {
+          width: 40%;
+        }
         height: 39px;
         line-height: 39px;
         float: right;
@@ -224,6 +231,9 @@ footer {
           line-height: 39px;
           height: 39px;
           .order {
+            @media (max-width: @screen-xs-min) {
+              font-size: 10px;
+            }
             border-bottom: 1px solid @pink;
             line-height: 20px;
             display: inline-block;
