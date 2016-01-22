@@ -28,7 +28,7 @@ class NewsImageInline(TabularInline):
 class NewsAdmin(ModelAdmin):
     list_display = ('title', 'ordering')
     list_editable = ('ordering',)
-    inlines = [NewsImageInline,]
+    inlines = [NewsImageInline, ]
 
 
 class TextBlockAdmin(ModelAdmin):
@@ -38,6 +38,7 @@ class TextBlockAdmin(ModelAdmin):
 class ProductAdmin(ModelAdmin):
     list_display = ('name', 'ordering', 'price')
     list_editable = ('ordering', 'price',)
+    list_filter = ('category',)
     fields = (
         ('name_ru', 'name_en'),
         ('desc_ru', 'desc_en'),
