@@ -98,32 +98,21 @@
           float: right;
           box-sizing: border-box;
           .remove, .add {
-            display: inline-block;
-            color: @pink;
-            border: 1px solid @pink;
+            cursor: pointer;
             height: 20px;
             width: 20px;
-            border-radius: 50%;
-            position: relative;
-            &:before {
-              position: absolute;
-              cursor: pointer;
-            }
+            display: inline-block;
           }
           .remove {
-            &:before {
-              content: '—';
-
-              left: 3.5px;
-              top: -2px;
+            background-image: url('/static/svg/minus_pink.svg');
+            &:hover {
+              background-image: url('/static/svg/minus_bord.svg');
             }
           }
           .add {
-            &:before {
-              content: '+';
-              left: 3.5px;
-              top: -6px;
-              font-size: 20px;
+            background-image: url('/static/svg/plus_pink.svg');
+            &:hover {
+              background-image: url('/static/svg/plus_bord.svg');
             }
           }
           .quantity {
@@ -150,23 +139,7 @@
           }
           .container_buy {
             .remove, .add {
-              border: 2px solid @bord;
-              &:before {
-                color: @bord;
-                font-weight: bold;
-              }
-            }
-            .remove {
-              &:before {
-                left: 2.5px;
-                top: -3px;
-              }
-            }
-            .add {
-              &:before {
-                left: 2.5px;
-                top: -7px;
-              }
+              display: inline-block;
             }
             .quantity {
               color: @bord;
