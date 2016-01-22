@@ -188,57 +188,63 @@ footer {
       text-align: center;
     }
   }
+}
 
-  .region_cart {
-    .cart_view {
+.region_cart {
+  .cart_view {
+    &.affix-bottom {
       position: absolute;
-      top: -40px;
-      height: 40px;
-      background: #fff;
+      bottom: 0;
+    }
+    &.affix {
+      bottom: 0;
+    }
+    display: block;
+    height: 40px;
+    background: #fff;
+    width: 100%;
+    border-top: 1px solid @bord;
+    .desc {
       width: 100%;
-      border-top: 1px solid @bord;
-      .desc {
-        width: 100%;
-        text-align: center;
-        height: 40px;
-        line-height: 40px;
-        vertical-align: middle;
-        letter-spacing: 1px;
-        .total_price, .total_quantity {
-          color: #000;
-        }
-
-        @media (max-width: @screen-xs-max) {
-          font-size: 11px;
-          letter-spacing: 0px;
-        }
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      letter-spacing: 1px;
+      .total_price, .total_quantity {
+        color: #000;
       }
-      .column_order {
-        width: 25%;
-        @media (max-width: @screen-xs-min) {
-          width: 40%;
-        }
-        height: 39px;
+
+      @media (max-width: @screen-xs-max) {
+        font-size: 11px;
+        letter-spacing: 0px;
+      }
+    }
+    .column_order {
+      width: 25%;
+      @media (max-width: @screen-xs-min) {
+        width: 40%;
+      }
+      height: 39px;
+      line-height: 39px;
+      float: right;
+      padding-left: 8px;
+      vertical-align: middle;
+      .container_order {
+        cursor: pointer;
+        text-align: center;
+        background: lighten(@pink, 25%);
+        color: @pink;
+        letter-spacing: 1px;
+        text-transform: uppercase;
         line-height: 39px;
-        float: right;
-        padding-left: 8px;
-        vertical-align: middle;
-        .container_order {
-          cursor: pointer;
-          text-align: center;
-          background: lighten(@pink, 25%);
-          color: @pink;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          line-height: 39px;
-          height: 39px;
-          .order {
-            @media (max-width: @screen-xs-min) {
-              font-size: 10px;
-            }
-            line-height: 20px;
-            display: inline-block;
+        height: 39px;
+        .order {
+          @media (max-width: @screen-xs-min) {
+            font-size: 10px;
           }
+          line-height: 20px;
+          display: inline-block;
         }
       }
     }

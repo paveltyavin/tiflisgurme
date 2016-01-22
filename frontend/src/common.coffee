@@ -8,6 +8,11 @@ bus = require './bus'
 class Cart extends backbone.Model
   url: '/api/cart/'
 
+declOfNum = (number, titles...) ->
+  # канал, канала, каналов
+  cases = [2, 0, 1, 1, 1, 2]
+  result = titles[if number % 100 > 4 and number % 100 < 20 then 2 else cases[if number % 10 < 5 then number % 10 else 5]]
+  return result
 
 class CartView extends marionette.ItemView
   className: 'cart_view'
@@ -16,6 +21,10 @@ class CartView extends marionette.ItemView
     'click .order': 'onClickOrder'
   onClickOrder: =>
     null
+  serializeData: =>
+    result = super
+    result['quantity_text'] = declOfNum(result.total_quantity, 'блюдо', 'блюда', 'блюд')
+    result
   onRender: =>
     cart_popover_template = require './templates/cart_popover'
     cart_popover_html= cart_popover_template()
@@ -24,6 +33,12 @@ class CartView extends marionette.ItemView
       html: true
       template: cart_popover_html
       content: 'К сожалению, онлайн доставка временно не доступна. Вы можете оформить заказ по телефону!'
+    @footer_height = $('footer').outerHeight(true) + 1
+
+  onShow: =>
+    @$el.affix
+      offset:
+        bottom: @footer_height
 
 navbarSerializeData = ->
   lang = $('html').attr('lang')
