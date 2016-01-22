@@ -8,6 +8,7 @@ bus = require './bus'
 class ProductItemView extends marionette.ItemView
   events:
     'click .container_image': 'onClickImg'
+    'click .container_empty_image': 'onClickImg'
     'click .remove': 'onClickRemove'
     'click .add': 'onClickAdd'
   onClickImg: =>
