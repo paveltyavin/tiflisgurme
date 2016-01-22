@@ -38,7 +38,7 @@ class TextBlockAdmin(ModelAdmin):
 class ProductAdmin(ModelAdmin):
     list_display = ('name', 'ordering', 'price')
     list_editable = ('ordering', 'price',)
-    list_filter = ('category',)
+    list_filter = ('category', 'sub_category',)
     fields = (
         ('name_ru', 'name_en'),
         ('desc_ru', 'desc_en'),
