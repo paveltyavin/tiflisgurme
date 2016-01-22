@@ -62,7 +62,7 @@
         {% if category.kind == 'menu' %}
             <div class="layout_menu">
                 <div class="row">
-                    <div class="col-md-5 product_list">
+                    <div class="col-md-6 product_list">
                         {% if product_without_sc.exists %}
                             <div class="sc_item">
                                 <ul class="leaders">
@@ -97,7 +97,6 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <div class="col-md-1"></div>
                     <div class="col-md-6">
                         <div class="container_category_image">
                             {% thumbnail category.image "x370" as im %}
