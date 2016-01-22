@@ -2,9 +2,11 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-md-5">
-                <div class="container_image">
-                    <img src="{{thumb}}" alt="">
-                </div>
+                {{#if thumb}}
+                    <div class="container_image">
+                        <img src="{{thumb}}" alt="">
+                    </div>
+                {{/if}}
             </div>
             <div class="col-md-6">
                 <div class="container_name">

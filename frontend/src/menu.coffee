@@ -12,12 +12,15 @@ class ProductItemView extends marionette.ItemView
     'click .add': 'onClickAdd'
   onClickImg: =>
     id = @$el.data 'id'
+    thumb = @$el.data 'thumb'
+    if thumb is 'None'
+      thumb = null
     @trigger 'modal',
       id: @$el.data 'id'
       name: @$el.data 'name'
       desc: @$el.data 'desc'
       price: @$el.data 'price'
-      thumb: @$el.data 'thumb'
+      thumb: thumb
       quantity: @$('.quantity').text()
   onClickAdd: =>
     id = @$el.data 'id'

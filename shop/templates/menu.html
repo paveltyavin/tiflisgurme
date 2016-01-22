@@ -7,7 +7,7 @@
         <div class="container_category_list">
             <div class="category_list row">
                 {% for c in category_list %}
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <a class="category_item" href="{% url 'category' c.id %}">
                             {% if c.image %}
                                 <div class="container_image">
