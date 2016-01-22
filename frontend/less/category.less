@@ -152,6 +152,33 @@
 
   .layout_menu {
     margin-top: 60px;
+
+    .leaders {
+      padding: 0;
+      overflow-x: hidden;
+      list-style: none;
+      li {
+        &:before {
+          float: left;
+          width: 0;
+          white-space: nowrap;
+          content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . "
+        }
+      }
+      span {
+        & + span {
+
+          float: right;
+          padding-left: 0.33em;
+          background: @yellow;
+        }
+        &:first-child {
+          padding-right: 0.33em;
+          background: @yellow;
+        }
+      }
+    }
+
     .product_list {
       .sc_item {
         .sc_name {
@@ -166,32 +193,6 @@
         border-bottom: 1px solid @bord;
         &:last-child {
           border-bottom: 0;
-        }
-      }
-      .product_item {
-        display: table;
-        width: 100%;
-        .container_name {
-          width: 1px;
-          word-break: keep-all;
-          display: table-cell;
-          white-space: nowrap;
-        }
-        .container_points {
-          display: table-cell;
-          vertical-align: bottom;
-          padding-left: 4px;
-          padding-right: 4px;
-          padding-bottom: 5px;
-          .points {
-            height: 4px;
-            background: url('/static/svg/point.svg') repeat-x;
-          }
-        }
-        .container_price {
-          display: table-cell;
-          width: 70px;
-          text-align: right;
         }
       }
     }
