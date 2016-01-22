@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from urllib.parse import urljoin, urlsplit
 from django import template
+from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from shop.models import TextBlock, Cart
 
@@ -23,7 +24,8 @@ def text_block(slug):
         obj = TextBlock.objects.get(slug=slug)
     except TextBlock.DoesNotExist:
         return ''
-    return getattr(obj, "value_{}".format(get_language()))
+    s = getattr(obj, "value_{}".format(get_language()))
+    return mark_safe(s)
 
 
 @register.simple_tag

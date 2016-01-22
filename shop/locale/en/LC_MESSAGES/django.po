@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Pavel Tyavin <pavel@tyavin.name>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-01 20:15-0300\n"
+"POT-Creation-Date: 2016-01-22 05:21+0300\n"
 "PO-Revision-Date: 2016-01-01 12:00+0\n"
 "Last-Translator: FULL NAME <pavel@tyavin.name>\n"
 "Language-Team: LANGUAGE <pavel@tyavin.name>\n"
@@ -17,111 +16,115 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: context_processors.py:9 views.py:20
+#: shop/context_processors.py:10
 msgid "monday"
 msgstr ""
 
-#: context_processors.py:10 views.py:21
+#: shop/context_processors.py:12
 msgid "tuesday"
 msgstr ""
 
-#: context_processors.py:11 views.py:22
+#: shop/context_processors.py:14
 msgid "wednesday"
 msgstr ""
 
-#: context_processors.py:12 views.py:23
+#: shop/context_processors.py:16
 msgid "thursday"
 msgstr ""
 
-#: context_processors.py:13 views.py:24
+#: shop/context_processors.py:18
 msgid "friday"
 msgstr ""
 
-#: context_processors.py:14 views.py:25
+#: shop/context_processors.py:20
 msgid "saturday"
 msgstr ""
 
-#: context_processors.py:15 views.py:26
+#: shop/context_processors.py:22
 msgid "sunday"
 msgstr ""
 
-#: context_processors.py:33 views.py:39
+#: shop/context_processors.py:25
 msgid "We are open"
 msgstr ""
 
-#: context_processors.py:33 views.py:39
+#: shop/context_processors.py:26
 msgid "We are closed"
 msgstr ""
 
-#: templates/base.html:26
+#: shop/templates/base.html:28
 msgid "Vacancies"
 msgstr ""
 
-#: templates/base.html:57
+#: shop/templates/base.html:62
 msgid "Our production"
 msgstr ""
 
-#: templates/base.html:69
+#: shop/templates/base.html:76
 msgid "Our friends"
 msgstr ""
 
-#: templates/category.html:43 templates/category.html.py:66
-#: templates/category.html:82
+#: shop/templates/category.html:48 shop/templates/category.html.py:75
+#: shop/templates/category.html:91
 msgid "rub"
 msgstr ""
 
-#: templates/contact.html:16
+#: shop/templates/contact.html:16
 msgid "Cafe-Khinkalnaya"
 msgstr ""
 
-#: templates/contact.html:17
+#: shop/templates/contact.html:17
 msgid "«Tiflis Gourme»"
 msgstr ""
 
-#: templates/contact.html:19
-msgid "Staropetrovskiy proezd"
+#: shop/templates/contact.html:19
+msgid "Staropetrovskiy proezd 1"
 msgstr ""
 
-#: templates/contact.html:20
-msgid "1 m. Voykovskaya"
+#: shop/templates/contact.html:20
+msgid "m. Voykovskaya"
 msgstr ""
 
-#: templates/contact.html:53 templates/home.html:44
-msgid "Today"
+#: shop/templates/contact.html:55
+msgid "Today is"
 msgstr ""
 
-#: templates/contact.html:69
+#: shop/templates/contact.html:73
 msgid "Write a message and me will answer for sure!"
 msgstr ""
 
-#: templates/contact.html:92
+#: shop/templates/contact.html:96
 msgid "Send"
 msgstr ""
 
-#: templates/contact.html:97
+#: shop/templates/contact.html:101
 msgid "Sent!"
 msgstr ""
 
-#: templates/contact.html:100
+#: shop/templates/contact.html:104
 msgid "Send another message?"
 msgstr ""
 
-#: templates/stub.html:15
+#: shop/templates/home.html:47
+msgid "Today"
+msgstr ""
+
+#: shop/templates/stub.html:15
 msgid "Our site is under construction"
 msgstr ""
 
-#: templates/vacancy.html:19
+#: shop/templates/vacancy.html:19
 msgid "Hot vacancies"
 msgstr ""
 
-#: views.py:92
+#: shop/views.py:82
 msgid "Name"
 msgstr ""
 
-#: views.py:93
+#: shop/views.py:83
 msgid "Phone"
 msgstr ""
 
-#: views.py:100
+#: shop/views.py:90
 msgid "Message Text"
 msgstr ""

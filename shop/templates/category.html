@@ -34,6 +34,10 @@
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     </div>
+                                {% else %}
+                                    <div class="container_empty_image">
+                                        <img src="{% static 'img/logo/pink.svg' %}" alt="">
+                                    </div>
                                 {% endif %}
                                 <div class="container_name">
                                     <div class="name">
@@ -41,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="container_price">
-                                    <div class="price">{{ product.price }} {% trans 'rub' %}</div>
+                                    <div class="price">{{ product.price }} {% trans 'rub' %}.</div>
                                     <div class="container_buy">
                                         <div class="remove"></div>
                                         <div class="quantity">{% get_cart_quantity request product %}</div>

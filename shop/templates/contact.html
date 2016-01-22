@@ -16,8 +16,8 @@
                 {% trans 'Cafe-Khinkalnaya' %} <br>
                 {% trans '«Tiflis Gourme»' %}
                 <p></p>
-                {% trans 'Staropetrovskiy proezd' %} <br>
-                {% trans '1 m. Voykovskaya' %}
+                {% trans 'Staropetrovskiy proezd 1' %} <br>
+                {% trans 'm. Voykovskaya' %}
                 {% if phone_list.all.exists %}
                     <p></p>
                     {% text_block 'book' %}
@@ -52,7 +52,7 @@
                 </div>
                 <div class="time">12:00 ― 22:00</div>
                 <div class="today">
-                    {{ now|date:"H:i" }} ― {% trans 'Today' %} {{ weekday }}. {{ open_text }}
+                    {{ now|date:"H:i" }} ― {% trans 'Today is' %} {{ weekday }}. {{ open_text }}
                 </div>
                 <div class="line_hex">
                     <div class="container_line">
