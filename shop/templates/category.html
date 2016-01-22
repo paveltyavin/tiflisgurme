@@ -68,11 +68,11 @@
                                 <ul class="leaders">
                                     {% for p in product_without_sc %}
                                         <li class="product_item">
-                                            <span class="name">
-                                                {{ p.name }} {{ p.portion }}
-                                            </span>
                                             <span class="price">
                                                 {{ p.price }} {% trans 'rub' %}.
+                                            </span>
+                                            <span class="name">
+                                                {{ p.name }} {{ p.portion }}
                                             </span>
                                         </li>
                                     {% endfor %}
@@ -85,11 +85,11 @@
                                 <ul class="leaders">
                                     {% for p in sc.product_set.all %}
                                         <li class="product_item">
-                                            <span class="name">
-                                                {{ p.name }} {{ p.portion }}
-                                            </span>
                                             <span class="price">
                                                 {{ p.price }} {% trans 'rub' %}.
+                                            </span>
+                                            <span class="name">
+                                                {{ p.name }} {{ p.portion }}
                                             </span>
                                         </li>
                                     {% endfor %}
