@@ -9,7 +9,7 @@ class Cart extends backbone.Model
   url: '/api/cart/'
 
 declOfNum = (number, titles...) ->
-  # канал, канала, каналов
+# канал, канала, каналов
   cases = [2, 0, 1, 1, 1, 2]
   result = titles[if number % 100 > 4 and number % 100 < 20 then 2 else cases[if number % 10 < 5 then number % 10 else 5]]
   return result
@@ -23,11 +23,26 @@ class CartView extends marionette.ItemView
     null
   serializeData: =>
     result = super
-    result['quantity_text'] = declOfNum(result.total_quantity, 'блюдо', 'блюда', 'блюд')
+    lang = $('html').attr 'lang'
+    if lang is 'en'
+      result = _.defaults result,
+        currency_text: "rub"
+        order_text: "order"
+        choose_text: "you choose"
+        with_text: "price:"
+      result['quantity_text'] = declOfNum(result.total_quantity, 'dish', 'dishes', 'dishes')
+    if lang is 'ru'
+      result = _.defaults result,
+        currency_text: "руб"
+        order_text: "Хочу заказать"
+        choose_text: "вы выбрали"
+        with_text: "на"
+      result['quantity_text'] = declOfNum(result.total_quantity, 'блюдо', 'блюда', 'блюд')
+
     result
   onRender: =>
     cart_popover_template = require './templates/cart_popover'
-    cart_popover_html= cart_popover_template()
+    cart_popover_html = cart_popover_template()
     @$('.container_order').popover
       placement: 'top'
       html: true
@@ -169,7 +184,7 @@ class CommonView extends marionette.LayoutView
 
     cart = new Cart
     @listenTo cart, 'sync', =>
-      total_quantity =  cart.get 'total_quantity'
+      total_quantity = cart.get 'total_quantity'
       if total_quantity
         cart_view = new CartView({model: cart})
         @region_cart.show(cart_view)

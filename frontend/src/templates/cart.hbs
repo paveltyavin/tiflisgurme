@@ -3,12 +3,12 @@
         <div class="container_order">
             <div class="order btn">
                 <span>
-                    Хочу заказать
+                    {{order_text}}
                 </span>
             </div>
         </div>
     </div>
     <div class="desc">
-        вы выбрали <span class="total_quantity">{{total_quantity}} {{quantity_text}}</span> на <span class="total_price">{{total_price}} руб.</span>
+        {{choose_text}} <span class="total_quantity">{{total_quantity}} {{quantity_text}}</span> {{with_text}} <span class="total_price">{{total_price}} {{currency_text}}.</span>
     </div>
 </div>
