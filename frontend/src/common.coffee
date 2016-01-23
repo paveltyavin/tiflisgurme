@@ -43,11 +43,16 @@ class CartView extends marionette.ItemView
   onRender: =>
     cart_popover_template = require './templates/cart_popover'
     cart_popover_html = cart_popover_template()
+    lang = $('html').attr 'lang'
+    if lang is 'en'
+      content_text = 'Unfortunately, the online service is temporarily unavailable. You can place your order over the phone!'
+    if lang is 'ru'
+      content_text = 'К сожалению, онлайн доставка временно не доступна. Вы можете оформить заказ по телефону!'
     @$('.container_order').popover
       placement: 'top'
       html: true
       template: cart_popover_html
-      content: 'К сожалению, онлайн доставка временно не доступна. Вы можете оформить заказ по телефону!'
+      content: content_text
     @footer_height = $('footer').outerHeight(true) + 1
 
   onShow: =>
