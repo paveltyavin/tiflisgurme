@@ -19,8 +19,19 @@ class CartView extends marionette.ItemView
   template: require './templates/cart'
   events:
     'click .order': 'onClickOrder'
+    'click .close': 'onClickClose'
   onClickOrder: =>
     null
+  onClickClose: =>
+    $.ajax
+      url: '/api/cart/'
+      method: 'delete'
+      dataType: 'json'
+      contentType: 'application/json'
+      data: JSON.stringify
+        all: true
+      success: (data)=>
+        bus.vent.trigger 'cart:delete'
   serializeData: =>
     result = super
     lang = $('html').attr 'lang'
@@ -60,6 +71,8 @@ class CartView extends marionette.ItemView
       offset:
         bottom: @footer_height
 
+    @$('.container_order').popover('show')
+
 navbarSerializeData = ->
   lang = $('html').attr('lang')
   result = {
@@ -95,10 +108,15 @@ class NavbarSmallView extends marionette.ItemView
   events:
     'click .expand': 'onClickExpand'
   onRender: =>
-    @$el.affix
-      offset:
-        top: ->
-          return $('.container_welcome').outerHeight(true)
+    width = $(window).width()
+    if width < 768
+      @$el.addClass 'affix'
+    else
+      @$el.affix
+        offset:
+          top: ->
+            return $('.container_welcome').outerHeight(true)
+
 
     lang = $('html').attr('lang')
   onClickExpand: (event) =>
@@ -193,6 +211,8 @@ class CommonView extends marionette.LayoutView
       if total_quantity
         cart_view = new CartView({model: cart})
         @region_cart.show(cart_view)
+        @listenTo bus.vent, 'cart:delete', =>
+          @region_cart.empty()
       else
         @region_cart.empty()
     cart.fetch()

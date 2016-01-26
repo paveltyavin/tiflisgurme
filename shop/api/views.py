@@ -52,10 +52,13 @@ class CartView(APIView):
         return Response(serializer.data)
 
     def delete(self, request):
-        product = self.get_product()
         cart = self.get_cart()
         if not cart:
             raise Http404
+        if request.data.get('all'):
+            cart.delete()
+            return Response({})
+        product = self.get_product()
 
         try:
             cp = CartProduct.objects.get(cart=cart, product=product)

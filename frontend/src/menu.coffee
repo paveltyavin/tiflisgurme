@@ -56,6 +56,8 @@ class ProductItemView extends marionette.ItemView
     @listenTo bus.vent, 'product:remove product:add', (data) =>
       if id is data.product
         @$('.quantity').text(data.quantity)
+    @listenTo bus.vent, 'cart:delete', (data) =>
+      @$('.quantity').text(0)
 
 
 
