@@ -116,17 +116,35 @@
 }
 
 .modal {
+  .portion,.price{
+    letter-spacing: 1px;
+  }
 
   .container_buy {
     display: inline-block;
     float: right;
+    line-height: 20px;
     .remove, .add {
       cursor: pointer;
       height: 20px;
       width: 20px;
-      margin-top: -2px;
+      display: inline-block;
     }
+    .remove {
+      background-image: url('/static/svg/minus_white.svg');
+      &:hover {
+        background-image: url('/static/svg/minus_white_bold.svg');
+      }
+    }
+    .add {
+      background-image: url('/static/svg/plus_white.svg');
+      &:hover {
+        background-image: url('/static/svg/plus_white_bold.svg');
+      }
+    }
+
     .quantity {
+      vertical-align: top;
       display: inline-block;
       height: 20px;
       width: 20px;
