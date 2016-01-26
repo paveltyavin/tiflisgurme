@@ -11,7 +11,7 @@
                         <a class="category_item" href="{% url 'category' c.id %}">
                             {% if c.image %}
                                 <div class="container_image">
-                                    {% thumbnail c.image "231x153" crop="center" as im %}
+                                    {% thumbnail c.image "235x153" crop="center" as im %}
                                         <img src="{{ im.url }}">
                                     {% endthumbnail %}
                                 </div>

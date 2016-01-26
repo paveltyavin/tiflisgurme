@@ -1,13 +1,17 @@
 .body_news {
   .news_list {
+    text-align: center;
     .make-row();
     .container_newsitem {
-      .make-md-column(4);
     }
     .middle_view {
       .make-md-column(12);
     }
     .newsitem {
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      width: 312px;
 
       &.active {
         width: 100%;
@@ -130,6 +134,9 @@
           width: 8px;
           border-color: @bord;
           background-color: @bord;
+        }
+        img{
+          max-width: 100%;
         }
       }
     }

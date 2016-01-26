@@ -21,6 +21,7 @@ class ProductItemView extends marionette.ItemView
       name: @$el.data 'name'
       desc: @$el.data 'desc'
       price: @$el.data 'price'
+      portion: @$el.data 'portion'
       thumb: thumb
       quantity: @$('.quantity').text()
   onClickAdd: =>

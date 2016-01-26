@@ -26,11 +26,12 @@
                                  data-name="{{ product.name }}"
                                  data-desc="{{ product.desc }}"
                                  data-price="{{ product.price }}"
+                                 data-portion="{{ product.portion }}"
                                  data-thumb="{{ product.get_thumb }}"
                                     >
                                 {% if product.image %}
                                     <div class="container_image">
-                                        {% thumbnail product.image "231x150" upscale=True crop='center' as im %}
+                                        {% thumbnail product.image "235x150" upscale=True crop='center' as im %}
                                             <img src="{{ im.url }}">
                                         {% endthumbnail %}
                                     </div>
