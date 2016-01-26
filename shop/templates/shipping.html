@@ -33,9 +33,9 @@
                     </ul>
 
                     <div class="order">
-                        Или закажите онлайн-доставку
+                        {% text_block 'shipping_or_online' %}
                         <a href="{% url 'menu' %}" class="btn">
-                            <span>Хочу заказать</span>
+                            <span>{% text_block 'shipping_order' %}</span>
                         </a>
                     </div>
                     <hr>
