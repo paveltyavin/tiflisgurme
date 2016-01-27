@@ -69,6 +69,9 @@ class HomeView extends marionette.ItemView
 
     @ribbon()
 
+    if $(window).width() < 768
+      $('.region_navbar').css 'height', 0
+
 
 module.exports = ->
   new HomeView

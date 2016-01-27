@@ -6,6 +6,7 @@
 {% load i18n %}
 {% block content %}
     <div class="container">
+        <div class="sm_title">{{ category.name }}</div>
         <div class="container_category_list">
             <div class="category_list row">
                 {% for c in category_list %}

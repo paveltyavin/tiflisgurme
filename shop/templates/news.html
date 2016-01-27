@@ -6,6 +6,7 @@
 {% block content %}
     {% block newsitem %}{% endblock %}
     <div class="container">
+        <div class="sm_title">Новости</div>
         <div class="news_list">
             {% for n in newsitem_list %}
                 <a class="container_newsitem col-md-4 col-sm-6" href="{% url 'news-detail' n.id %}"

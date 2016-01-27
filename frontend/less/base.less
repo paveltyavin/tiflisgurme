@@ -12,6 +12,11 @@ body {
 
 .content {
   padding-top: 35px;
+  @media (max-width: @screen-xs-max) {
+    padding-top: 0px;
+    padding-left:10px;
+    padding-right:10px;
+  }
 }
 
 .phone_list {
@@ -50,4 +55,14 @@ form {
       border-bottom: 1px solid @pink;
     }
   }
+}
+
+.sm_title {
+  letter-spacing: 0.75px;
+  .visible-xs();
+  text-align: center;
+  color: @bord;
+  font-size: 22px;
+  line-height: 55px;
+  text-transform: uppercase;
 }

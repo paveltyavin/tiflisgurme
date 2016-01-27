@@ -3,15 +3,22 @@
 {% block body_class %}body_shipping{% endblock %}
 {% load shop_tags %}
 {% block content %}
+    <div class="sm_title">Доставка</div>
     <div class="row image_list">
-        <div class="col-xs-4">
-            <img src="{% static 'img/shipping/1.jpg' %}" alt="">
+        <div class="col-sm-4">
+            <div class="container_image">
+                <img src="{% static 'img/shipping/2.jpg' %}" alt="">
+            </div>
         </div>
-        <div class="col-xs-4">
-            <img src="{% static 'img/shipping/2.jpg' %}" alt="">
+        <div class="col-sm-4 hidden-xs">
+            <div class="container_image">
+                <img src="{% static 'img/shipping/1.jpg' %}" alt="">
+            </div>
         </div>
-        <div class="col-xs-4">
-            <img src="{% static 'img/shipping/3.jpg' %}" alt="">
+        <div class="col-sm-4 hidden-xs">
+            <div class="container_image">
+                <img src="{% static 'img/shipping/3.jpg' %}" alt="">
+            </div>
         </div>
     </div>
     <div class="container container_address">
