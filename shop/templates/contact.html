@@ -80,10 +80,10 @@
                 {% if form %}
                     <form action="" method="post">
                         {% csrf_token %}
-                        {% bootstrap_field form.name %}
+                        <div class="form-group"><input class="form-control" id="id_name" maxlength="100" name="name" placeholder="{% trans 'Name' %}" required="required" title="" type="text"></div>
                         <div class="row">
                             <div class="col-md-6">
-                                {% bootstrap_field form.phone %}
+                                <div class="form-group"><input class="form-control" id="id_phone" maxlength="100" name="phone" placeholder="{% trans 'phone' %}" required="required" title="" type="text"></div>
                             </div>
                             <div class="col-md-6">
                                 {% bootstrap_field form.email %}
@@ -91,7 +91,7 @@
                         </div>
 
 
-                        {% bootstrap_field form.text %}
+                        <div class="form-group"><textarea class="form-control" cols="40" id="id_text" maxlength="100" name="text" placeholder="{% trans 'Message Text' %}" required="required" rows="6" title=""></textarea></div>
 
                         <div class="text-center">
                             <button type="submit" class="btn">
