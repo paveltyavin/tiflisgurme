@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-22 05:23+0300\n"
+"POT-Creation-Date: 2016-01-27 23:20+0300\n"
 "PO-Revision-Date: 2016-01-01 12:00+0\n"
 "Last-Translator: FULL NAME <pavel@tyavin.name>\n"
 "Language-Team: LANGUAGE <pavel@tyavin.name>\n"
@@ -58,75 +58,91 @@ msgstr "Мы закрыты"
 msgid "Vacancies"
 msgstr "Вакансии"
 
-#: shop/templates/base.html:62
+#: shop/templates/base.html:61
 msgid "Our production"
 msgstr "Наша продукция"
 
-#: shop/templates/base.html:76
+#: shop/templates/base.html:75
 msgid "Our friends"
 msgstr "Наши друзья"
 
-#: shop/templates/category.html:48 shop/templates/category.html.py:75
-#: shop/templates/category.html:91
+#: shop/templates/category.html:50 shop/templates/category.html.py:74
+#: shop/templates/category.html:94
 msgid "rub"
 msgstr "руб"
 
-#: shop/templates/contact.html:16
+#: shop/templates/contact.html:9
+msgid "Contacts"
+msgstr ""
+
+#: shop/templates/contact.html:17
 msgid "Cafe-Khinkalnaya"
 msgstr "Кафе-Хинкальная"
 
-#: shop/templates/contact.html:17
+#: shop/templates/contact.html:18
 msgid "«Tiflis Gourme»"
 msgstr "«Тифлис Гурмэ»"
 
-#: shop/templates/contact.html:19
+#: shop/templates/contact.html:20
 msgid "Staropetrovskiy proezd 1"
 msgstr "Старопетровский пр-д. 1"
 
-#: shop/templates/contact.html:20
+#: shop/templates/contact.html:21
 msgid "m. Voykovskaya"
 msgstr "м. Войковская"
 
-#: shop/templates/contact.html:55
+#: shop/templates/contact.html:56
 msgid "Today is"
 msgstr "Сегодня"
 
-#: shop/templates/contact.html:73
+#: shop/templates/contact.html:74
 msgid "Write a message and me will answer for sure!"
 msgstr "Напишите нам, и мы вам обязательно ответим!"
 
-#: shop/templates/contact.html:96
+#: shop/templates/contact.html:83 shop/views.py:82
+msgid "Name"
+msgstr "Имя"
+
+#: shop/templates/contact.html:86 shop/views.py:83
+msgid "Phone"
+msgstr "Телефон"
+
+#: shop/templates/contact.html:94 shop/views.py:90
+msgid "Message Text"
+msgstr "Текст сообщения"
+
+#: shop/templates/contact.html:99
 msgid "Send"
 msgstr "Отправить"
 
-#: shop/templates/contact.html:101
+#: shop/templates/contact.html:106
 msgid "Sent!"
 msgstr "Отправлено!"
 
-#: shop/templates/contact.html:104
+#: shop/templates/contact.html:109
 msgid "Send another message?"
 msgstr "Отправить новое письмо?"
 
-#: shop/templates/home.html:47
+#: shop/templates/home.html:46
 msgid "Today"
 msgstr "Сегодня"
+
+#: shop/templates/menu.html:6
+msgid "Menu"
+msgstr "Меню"
+
+#: shop/templates/news.html:9
+msgid "News"
+msgstr "Новости"
+
+#: shop/templates/shipping.html:6
+msgid "Shipping"
+msgstr "Доставка"
 
 #: shop/templates/stub.html:15
 msgid "Our site is under construction"
 msgstr "Наш сайт в процессе создания"
 
-#: shop/templates/vacancy.html:19
+#: shop/templates/vacancy.html:24
 msgid "Hot vacancies"
 msgstr "«Горящие вакансии»"
-
-#: shop/views.py:82
-msgid "Name"
-msgstr "Имя"
-
-#: shop/views.py:83
-msgid "Phone"
-msgstr "Телефон"
-
-#: shop/views.py:90
-msgid "Message Text"
-msgstr "Текст сообщения"

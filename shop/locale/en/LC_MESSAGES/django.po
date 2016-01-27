@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-22 05:21+0300\n"
+"POT-Creation-Date: 2016-01-27 23:20+0300\n"
 "PO-Revision-Date: 2016-01-01 12:00+0\n"
 "Last-Translator: FULL NAME <pavel@tyavin.name>\n"
 "Language-Team: LANGUAGE <pavel@tyavin.name>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "sunday"
 msgstr ""
 
-#: shop/context_processors.py:25
+#: shop/context_processors.py:26
 msgid "We are open"
 msgstr ""
 
@@ -56,75 +56,91 @@ msgstr ""
 msgid "Vacancies"
 msgstr ""
 
-#: shop/templates/base.html:62
+#: shop/templates/base.html:61
 msgid "Our production"
 msgstr ""
 
-#: shop/templates/base.html:76
+#: shop/templates/base.html:75
 msgid "Our friends"
 msgstr ""
 
-#: shop/templates/category.html:48 shop/templates/category.html.py:75
-#: shop/templates/category.html:91
+#: shop/templates/category.html:50 shop/templates/category.html.py:74
+#: shop/templates/category.html:94
 msgid "rub"
 msgstr ""
 
-#: shop/templates/contact.html:16
-msgid "Cafe-Khinkalnaya"
+#: shop/templates/contact.html:9
+msgid "Contacts"
 msgstr ""
 
 #: shop/templates/contact.html:17
+msgid "Cafe-Khinkalnaya"
+msgstr ""
+
+#: shop/templates/contact.html:18
 msgid "«Tiflis Gourme»"
 msgstr ""
 
-#: shop/templates/contact.html:19
+#: shop/templates/contact.html:20
 msgid "Staropetrovskiy proezd 1"
 msgstr ""
 
-#: shop/templates/contact.html:20
+#: shop/templates/contact.html:21
 msgid "m. Voykovskaya"
 msgstr ""
 
-#: shop/templates/contact.html:55
+#: shop/templates/contact.html:56
 msgid "Today is"
 msgstr ""
 
-#: shop/templates/contact.html:73
+#: shop/templates/contact.html:74
 msgid "Write a message and me will answer for sure!"
 msgstr ""
 
-#: shop/templates/contact.html:96
+#: shop/templates/contact.html:83 shop/views.py:82
+msgid "Name"
+msgstr ""
+
+#: shop/templates/contact.html:86 shop/views.py:83
+msgid "Phone"
+msgstr ""
+
+#: shop/templates/contact.html:94 shop/views.py:90
+msgid "Message Text"
+msgstr ""
+
+#: shop/templates/contact.html:99
 msgid "Send"
 msgstr ""
 
-#: shop/templates/contact.html:101
+#: shop/templates/contact.html:106
 msgid "Sent!"
 msgstr ""
 
-#: shop/templates/contact.html:104
+#: shop/templates/contact.html:109
 msgid "Send another message?"
 msgstr ""
 
-#: shop/templates/home.html:47
+#: shop/templates/home.html:46
 msgid "Today"
+msgstr ""
+
+#: shop/templates/menu.html:6
+msgid "Menu"
+msgstr ""
+
+#: shop/templates/news.html:9
+msgid "News"
+msgstr ""
+
+#: shop/templates/shipping.html:6
+msgid "Shipping"
 msgstr ""
 
 #: shop/templates/stub.html:15
 msgid "Our site is under construction"
 msgstr ""
 
-#: shop/templates/vacancy.html:19
+#: shop/templates/vacancy.html:24
 msgid "Hot vacancies"
-msgstr ""
-
-#: shop/views.py:82
-msgid "Name"
-msgstr ""
-
-#: shop/views.py:83
-msgid "Phone"
-msgstr ""
-
-#: shop/views.py:90
-msgid "Message Text"
 msgstr ""
