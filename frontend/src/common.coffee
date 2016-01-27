@@ -170,7 +170,7 @@ class NavbarBigView extends marionette.LayoutView
           link = @routing[key]
           @$("[data-link=#{link}]").addClass 'active'
 
-    if not _.contains(['', '/ru/home/', '/en/home/'], pathname) and $(window).width() > 1100
+    if not _.contains(['', '/ru/home/', '/en/home/'], pathname)
       @region_ribbon.show(new RibbonView)
 
 
