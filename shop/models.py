@@ -226,8 +226,10 @@ class Vacancy(models.Model):
 
 
 class NewsItem(models.Model):
-    title = models.CharField(max_length=256, verbose_name='Заголовок', default='')
-    text = models.TextField(verbose_name='Текст', default='')
+    title_ru = models.CharField(max_length=256, verbose_name='Заголовок (рус.)', default='')
+    text_ru = models.TextField(verbose_name='Текст (рус.)', default='')
+    title_en = models.CharField(max_length=256, verbose_name='Заголовок (англ.)', default='')
+    text_en = models.TextField(verbose_name='Текст (англ.)', default='')
 
     ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
     image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение', default='')
@@ -237,6 +239,14 @@ class NewsItem(models.Model):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
         ordering = ('ordering',)
+
+    @property
+    def title(self):
+        return getattr(self, 'title_{}'.format(get_language()))
+
+    @property
+    def text(self):
+        return getattr(self, 'text_{}'.format(get_language()))
 
     def __str__(self):
         return self.title
