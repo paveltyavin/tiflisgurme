@@ -1,9 +1,9 @@
 @ribbon_height: 50px;
 .body_home {
-  .content{
+  .content {
     padding-top: 0;
   }
-  .bg_hex{
+  .bg_hex {
     background: #fdf6ec url('/static/svg/hex_violet.svg');
   }
   .ribbon {
@@ -106,6 +106,9 @@
     }
     .title {
       margin-top: 29px;
+      @media (max-width: @screen-xs-max) {
+        font-size: 18px;
+      }
     }
     .container_logo {
       .image {
@@ -145,12 +148,13 @@
       left: 50%;
       width: 600px;
       margin-left: -300px;
+      font-size: 18px;
+      color: #fff;
       @media (max-width: @screen-xs-max) {
         width: 400px;
         margin-left: -200px;
+        font-size: 14px;
       }
-      font-size: 18px;
-      color: #fff;
     }
     .arrow_bottom {
       position: absolute;
@@ -177,6 +181,9 @@
     color: @brand-primary;
     text-align: center;
     font-size: 36px;
+    @media (max-width: @screen-xs-max) {
+      font-size: 20px;
+    }
   }
   .container_khink {
     text-align: center;
