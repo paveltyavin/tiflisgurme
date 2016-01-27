@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-27 23:20+0300\n"
+"POT-Creation-Date: 2016-01-27 23:26+0300\n"
 "PO-Revision-Date: 2016-01-01 12:00+0\n"
 "Last-Translator: FULL NAME <pavel@tyavin.name>\n"
 "Language-Team: LANGUAGE <pavel@tyavin.name>\n"
@@ -54,7 +54,7 @@ msgstr "Мы открыты"
 msgid "We are closed"
 msgstr "Мы закрыты"
 
-#: shop/templates/base.html:28
+#: shop/templates/base.html:28 shop/templates/vacancy.html.py:7
 msgid "Vacancies"
 msgstr "Вакансии"
 
@@ -127,15 +127,15 @@ msgstr "Отправить новое письмо?"
 msgid "Today"
 msgstr "Сегодня"
 
-#: shop/templates/menu.html:6
+#: shop/templates/menu.html:7
 msgid "Menu"
 msgstr "Меню"
 
-#: shop/templates/news.html:9
+#: shop/templates/news.html:10
 msgid "News"
 msgstr "Новости"
 
-#: shop/templates/shipping.html:6
+#: shop/templates/shipping.html:7
 msgid "Shipping"
 msgstr "Доставка"
 
