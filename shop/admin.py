@@ -25,10 +25,21 @@ class NewsImageInline(TabularInline):
     extra = 0
 
 
+class CategoryImageInline(TabularInline):
+    model = models.CategoryImage
+    extra = 0
+
+
 class NewsAdmin(ModelAdmin):
     list_display = ('title', 'ordering')
     list_editable = ('ordering',)
     inlines = [NewsImageInline, ]
+
+
+class CategoryAdmin(ModelAdmin):
+    list_display = ('name_ru', 'ordering')
+    list_editable = ('ordering',)
+    inlines = [CategoryImageInline, ]
 
 
 class TextBlockAdmin(ModelAdmin):
@@ -53,7 +64,7 @@ class ProductAdmin(ModelAdmin):
 
 site.register(models.Vacancy, StandardAdmin)
 site.register(models.Product, ProductAdmin)
-site.register(models.Category, StandardAdmin)
+site.register(models.Category, CategoryAdmin)
 site.register(models.SubCategory, StandardAdmin)
 site.register(models.NewsItem, NewsAdmin)
 site.register(models.TextBlock, TextBlockAdmin)

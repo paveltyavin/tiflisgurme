@@ -75,8 +75,11 @@ class CartView extends marionette.ItemView
 
 navbarSerializeData = ->
   lang = $('html').attr('lang')
+  path = window.location.pathname
+  path = path.replace("/#{lang}/", '')
   result = {
     lang: lang
+    path: path
   }
   if lang is 'ru'
     result = _.defaults result,
@@ -100,6 +103,7 @@ navbarSerializeData = ->
       vacancy: 'Vacancies'
       other_lang: 'ru'
   return result
+
 
 
 class NavbarSmallView extends marionette.ItemView

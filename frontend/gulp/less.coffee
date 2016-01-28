@@ -19,7 +19,3 @@ gulp.task 'build:less', ->
   gulp.src './less/styles.less'
   .pipe less()
   .pipe gulp.dest './dist/'
-
-  gulp.src './less/stub.less'
-  .pipe less()
-  .pipe gulp.dest './dist/'

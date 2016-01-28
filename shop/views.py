@@ -13,10 +13,6 @@ from shop.models import HomeImage, Category, Vacancy, NewsItem
 from django.utils.translation import ugettext as _
 
 
-class StubView(TemplateView):
-    template_name = 'stub.html'
-
-
 class HomeView(TemplateView):
     template_name = 'home.html'
 

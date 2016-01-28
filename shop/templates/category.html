@@ -105,12 +105,14 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <div class="col-md-6">
-                        <div class="container_category_image">
-                            {% thumbnail category.image "x370" as im %}
-                                <img src="{{ im.url }}">
-                            {% endthumbnail %}
-                        </div>
+                    <div class="col-md-5 col-md-offset-1">
+                        {% for ci in category.categoryimage_set.all %}
+                            <div class="container_category_image">
+                                {% thumbnail ci.image "x370" as im %}
+                                    <img src="{{ im.url }}">
+                                {% endthumbnail %}
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

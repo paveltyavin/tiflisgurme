@@ -57,6 +57,23 @@ class Category(models.Model):
         ordering = ('ordering',)
 
 
+class CategoryImage(models.Model):
+    category = models.ForeignKey('Category')
+    image = models.ImageField(upload_to=convert_file_name, verbose_name='Изображение')
+    ordering = models.PositiveSmallIntegerField(verbose_name='Сортировка', default=0)
+
+    def __str__(self):
+        if self.image:
+            return self.image.url
+        else:
+            return ''
+
+    class Meta:
+        verbose_name = 'Изображение категории'
+        verbose_name_plural = 'Изображения категорий'
+        ordering = ('ordering',)
+
+
 class SubCategory(models.Model):
     name_ru = models.CharField(
         max_length=256,
